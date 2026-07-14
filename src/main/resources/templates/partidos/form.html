@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Configurar Mercado (Partido)</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="mb-4">
+        <a href="/partidos" class="text-decoration-none text-muted fw-bold"><i class="bi bi-arrow-left"></i> Volver a Mercados</a>
+    </div>
+
+    <div class="card shadow-sm border-0" style="max-width: 800px;">
+        <div class="card-header bg-white py-3">
+            <h4 class="card-title mb-0" th:text="${partido.id != null} ? 'Editar Mercado' : 'Abrir Nuevo Mercado'"><i class="bi bi-gear"></i> Formulario de Partido</h4>
+        </div>
+
+        <div class="card-body p-4">
+            <form th:action="@{/partidos/guardar}" th:object="${partido}" method="post">
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Fecha del Evento</label>
+                        <input type="date" class="form-control" th:field="*{fecha}" required />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Deporte</label>
+                        <input type="text" class="form-control" th:field="*{deporte}" required placeholder="Ej. Fútbol" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold text-success">Equipo Local (1)</label>
+                        <input type="text" class="form-control" th:field="*{equipo1}" required placeholder="Ej. Argentina" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold text-danger">Equipo Visitante (2)</label>
+                        <input type="text" class="form-control" th:field="*{equipo2}" required placeholder="Ej. Francia" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label fw-bold">Resultado Final (Vacio si está pendiente)</label>
+                        <input type="text" class="form-control" th:field="*{ganador}" placeholder="Ej. EMPATE, LOCAL, VISITANTE" />
+                    </div>
+                </div>
+
+                <div class="mt-4 text-end">
+                    <button type="submit" class="btn btn-action rounded-pill px-5 fw-bold">
+                        <i class="bi bi-check-circle"></i> Guardar Mercado
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

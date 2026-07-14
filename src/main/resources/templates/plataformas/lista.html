@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Terminal Virtual</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="page-title mb-0"><i class="bi bi-display text-primary"></i> Ajustes Terminal Virtual</h2>
+        <div>
+            <a th:href="@{/plataforma/nueva}" class="btn btn-action rounded-pill px-4 me-2">
+                <i class="bi bi-plus-circle"></i> Nueva Configuración
+            </a>
+            <a th:href="@{/plataforma/simulador}" class="btn btn-warning rounded-pill px-4 fw-bold">
+                <i class="bi bi-play-fill"></i> Iniciar Simulador
+            </a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Clave Configuración</th>
+                        <th>Tipo Opción</th>
+                        <th>Monto / Valor</th>
+                        <th>Acción Relacionada</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="op : ${listaOpciones}">
+                        <td class="fw-bold text-muted" th:text="${op.id}">1</td>
+                        <td th:text="${op.etiquetaMenu}">Opción</td>
+                        <td><span class="badge bg-secondary" th:text="${op.tipoOpcion}">Tipo</span></td>
+                        <td th:text="${op.montoMinimo}">0</td>
+                        <td><span class="badge bg-info text-dark" th:text="${op.accionBoton}">-</span></td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(listaOpciones)}">
+                        <td colspan="5" class="text-center py-5 text-muted">
+                            <i class="bi bi-sliders fs-1 d-block mb-3"></i>
+                            El terminal no tiene opciones configuradas.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

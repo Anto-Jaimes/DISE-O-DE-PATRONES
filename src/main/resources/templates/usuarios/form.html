@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Formulario de Jugador</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="mb-4">
+        <a href="/usuarios" class="text-decoration-none text-muted fw-bold"><i class="bi bi-arrow-left"></i> Volver a Jugadores</a>
+    </div>
+
+    <div class="card shadow-sm border-0" style="max-width: 800px;">
+        <div class="card-header bg-white py-3">
+            <h4 class="card-title mb-0" th:text="${usuario.id != null} ? 'Editar Jugador' : 'Registrar Nuevo Jugador'"><i class="bi bi-person-badge"></i> Formulario de Jugador</h4>
+        </div>
+
+        <div class="card-body p-4">
+            <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Nombre</label>
+                        <input type="text" class="form-control form-control-lg" th:field="*{nombre}" required placeholder="Ej. Lionel" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Apellido</label>
+                        <input type="text" class="form-control form-control-lg" th:field="*{apellido}" required placeholder="Ej. Messi" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Usuario / Código</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light">@</span>
+                            <input type="text" class="form-control" th:field="*{codigo}" required placeholder="Ej. lmessi10" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Correo Electrónico</label>
+                        <input type="email" class="form-control" th:field="*{email}" placeholder="Ej. leo@argentina.com" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><i class="bi bi-key"></i></span>
+                            <input type="text" class="form-control" th:field="*{contrasena}" required placeholder="Ej. 12345" />
+                        </div>
+                        <div class="form-text">Contraseña de acceso para el login.</div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold text-success">Saldo Disponible ($)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light">$</span>
+                            <input type="number" step="0.01" class="form-control fw-bold" th:field="*{saldo}" required placeholder="Ej. 1000.00" />
+                        </div>
+                        <div class="form-text">Fondos disponibles para apostar.</div>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-end">
+                    <button type="submit" class="btn btn-action rounded-pill px-5 fw-bold">
+                        <i class="bi bi-save"></i> Guardar Jugador
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

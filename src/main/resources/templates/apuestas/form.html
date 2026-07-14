@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Configurar Apuesta</title>
+    <style>
+        .step-container {
+            display: none;
+        }
+        .step-container.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #e0e0e0;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+        .step-indicator-item {
+            position: relative;
+            z-index: 2;
+            background-color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 3px solid #e0e0e0;
+            color: #888;
+            transition: all 0.3s;
+        }
+        .step-indicator-item.active {
+            border-color: var(--wc-purple);
+            background-color: var(--wc-purple);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(74, 20, 140, 0.4);
+        }
+        .step-indicator-item.completed {
+            border-color: var(--wc-green);
+            background-color: var(--wc-green);
+            color: #000;
+        }
+        .step-label {
+            position: absolute;
+            top: 45px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            width: 120px;
+            text-align: center;
+            color: #888;
+        }
+        .step-indicator-item.active .step-label {
+            color: var(--wc-purple);
+        }
+        .step-indicator-item.completed .step-label {
+            color: var(--wc-green);
+        }
+    </style>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="mb-4">
+        <a href="/apuestas" class="text-decoration-none text-muted fw-bold"><i class="bi bi-arrow-left"></i> Volver a Historial</a>
+    </div>
+
+    <div class="card shadow-lg border-0" style="max-width: 800px; border-radius: 16px;">
+        <div class="card-header bg-white py-4 border-0 text-center">
+            <h3 class="fw-bold mb-1" style="color: var(--wc-purple);"><i class="bi bi-ticket-perforated"></i> Asistente de Apuesta</h3>
+            <p class="text-muted mb-0">Completa los pasos para registrar tu pronóstico del Mundial 2026</p>
+        </div>
+
+        <div class="card-body px-5 pb-5">
+            
+            <!-- Step Indicators -->
+            <div class="step-indicator px-5">
+                <div class="step-indicator-item active" id="ind-step1">
+                    1
+                    <div class="step-label" style="left: -40px;">Evento y Jugador</div>
+                </div>
+                <div class="step-indicator-item" id="ind-step2">
+                    2
+                    <div class="step-label" style="right: -40px;">Detalles de Apuesta</div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form th:action="@{/apuestas/guardar}" th:object="${apuesta}" method="post" id="betWizardForm">
+                <input type="hidden" th:field="*{id}" />
+
+                <!-- PASO 1: Jugador y Partido -->
+                <div class="step-container active" id="step1">
+                    <h5 class="fw-bold mb-4 text-secondary"><i class="bi bi-person-fill-check"></i> Paso 1: Selección de Jugador y Evento</h5>
+                    
+                    <div class="row mb-4">
+                        <!-- Selección de Usuario (Jugador) - Autocompletado si está logueado -->
+                        <div class="col-md-12 mb-4">
+                            <label class="form-label fw-bold">Jugador Asignado</label>
+                            
+                            <!-- Si está logueado, preseleccionar y bloquear -->
+                            <div th:if="${session.usuarioLogueado != null}">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="bi bi-person-fill text-purple"></i></span>
+                                    <input type="text" class="form-control fw-bold" th:value="${session.usuarioLogueado.nombre + ' ' + session.usuarioLogueado.apellido + ' (@' + session.usuarioLogueado.codigo + ')'}" readonly />
+                                </div>
+                                <input type="hidden" th:field="*{usuario.id}" th:value="${session.usuarioLogueado.id}" />
+                                <div class="form-text">El ticket se registrará automáticamente a tu nombre.</div>
+                            </div>
+
+                            <!-- Fallback por si no estuviese en sesión -->
+                            <div th:if="${session.usuarioLogueado == null}">
+                                <select class="form-select form-select-lg" th:field="*{usuario.id}" required>
+                                    <option value="">-- Seleccionar Jugador --</option>
+                                    <option th:each="usr : ${listaUsuarios}"
+                                            th:value="${usr.id}"
+                                            th:text="${usr.nombre + ' ' + usr.apellido}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Selección de Partido (Mercado) -->
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-bold text-dark">Evento Deportivo del Mundial 2026</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="bi bi-dribbble text-danger"></i></span>
+                                <select class="form-select form-select-lg fw-bold" th:field="*{partido.id}" id="partidoSelect" required>
+                                    <option value="">-- Seleccionar Partido Disponible --</option>
+                                    <option th:each="ptd : ${listaPartidos}"
+                                            th:value="${ptd.id}"
+                                            th:text="${ptd.equipo1 + ' vs ' + ptd.equipo2 + ' (' + ptd.fecha + ')'}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-text">Elige el encuentro de fútbol en el que deseas apostar.</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 text-end">
+                        <button type="button" class="btn btn-purple rounded-pill px-5 fw-bold text-white" style="background-color: var(--wc-purple);" onclick="goToStep(2)">
+                            Siguiente Paso <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PASO 2: Pronóstico, Monto y Fecha -->
+                <div class="step-container" id="step2">
+                    <h5 class="fw-bold mb-4 text-secondary"><i class="bi bi-cash-coin"></i> Paso 2: Detalles de tu Pronóstico y Monto</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <label class="form-label fw-bold text-info">Pronóstico del Partido</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="bi bi-question-circle-fill text-info"></i></span>
+                                <select class="form-select form-select-lg fw-bold" th:field="*{resultadoApostado}" id="pronosticoSelect" required>
+                                    <option value="">Seleccione el pronóstico...</option>
+                                    <option value="LOCAL">Gana Equipo Local (1)</option>
+                                    <option value="EMPATE">Empate (X)</option>
+                                    <option value="VISITANTE">Gana Equipo Visitante (2)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold text-success">Monto a Apostar ($)</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light fw-bold text-success">$</span>
+                                <input type="number" step="0.01" min="1" class="form-control fw-bold text-success" th:field="*{monto}" id="montoInput" required placeholder="Ej. 50.00" />
+                            </div>
+                            <div class="form-text" th:if="${session.usuarioLogueado != null}">
+                                Tu saldo disponible es: <strong>$<span th:text="${#numbers.formatDecimal(session.usuarioLogueado.saldo, 1, 2)}">2500.00</span></strong>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Fecha de Registro</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light"><i class="bi bi-calendar3"></i></span>
+                                <input type="date" class="form-control" th:field="*{fecha}" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 d-flex justify-content-between">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 fw-bold" onclick="goToStep(1)">
+                            <i class="bi bi-arrow-left-short"></i> Atrás
+                        </button>
+                        <button type="submit" class="btn btn-action rounded-pill px-5 fw-bold">
+                            <i class="bi bi-check-circle-fill"></i> Confirmar y Registrar Apuesta
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script para control del Wizard -->
+    <script>
+        function goToStep(stepNum) {
+            if (stepNum === 2) {
+                // Validación básica de Paso 1
+                const partido = document.getElementById('partidoSelect').value;
+                if (!partido) {
+                    alert('Por favor, selecciona un evento deportivo para continuar.');
+                    return;
+                }
+                
+                // Cambiar estado activo en HTML
+                document.getElementById('step1').classList.remove('active');
+                document.getElementById('step2').classList.add('active');
+                
+                // Cambiar indicadores visuales
+                document.getElementById('ind-step1').classList.remove('active');
+                document.getElementById('ind-step1').classList.add('completed');
+                document.getElementById('ind-step2').classList.add('active');
+            } else if (stepNum === 1) {
+                // Volver a Paso 1
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step1').classList.add('active');
+                
+                // Cambiar indicadores visuales
+                document.getElementById('ind-step2').classList.remove('active');
+                document.getElementById('ind-step1').classList.remove('completed');
+                document.getElementById('ind-step1').classList.add('active');
+            }
+        }
+    </script>
+</section>
+
+</body>
+</html>

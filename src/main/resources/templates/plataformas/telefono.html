@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Simulador Terminal</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="mb-4 d-flex justify-content-between align-items-center">
+        <h2 class="page-title mb-0"><i class="bi bi-phone-vibrate text-warning"></i> Simulador Interactivo</h2>
+        <a href="/plataforma" class="btn btn-outline-secondary rounded-pill px-4 fw-bold">Salir del Simulador</a>
+    </div>
+
+    <div class="row">
+        <!-- Interactive Terminal UI -->
+        <div class="col-md-5 mx-auto">
+            <div class="card shadow-lg border-0" style="background: #111; border-radius: 30px; border: 4px solid #333 !important;">
+                <div class="card-header bg-transparent text-center border-0 pt-4">
+                    <div style="width: 50px; height: 5px; background: #333; margin: 0 auto; border-radius: 10px;"></div>
+                    <h5 class="text-white mt-4 fw-bold"><i class="bi bi-reception-4 text-success"></i> BET2026 Mobile</h5>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div class="p-4 rounded mb-4" style="background: #222; min-height: 200px; color: #00E676; font-family: monospace; text-align: left; box-shadow: inset 0 0 10px #000;">
+                        <div id="sim-screen">
+                            > Iniciando sistema...<br>
+                            > Conexión segura establecida.<br>
+                            > BIENVENIDO A BET2026<br>
+                            > Seleccione una opción:
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-light rounded-pill mb-2 fw-bold" onclick="appendSim('> Consultando cuotas en vivo...')">1. Ver Cuotas en Vivo</button>
+                        <button class="btn btn-outline-light rounded-pill mb-2 fw-bold" onclick="appendSim('> Ingresando al panel de apuestas...')">2. Colocar Apuesta</button>
+                        <button class="btn btn-outline-light rounded-pill mb-2 fw-bold" onclick="appendSim('> Cargando historial de tickets...')">3. Mis Tickets</button>
+                        <button class="btn btn-warning rounded-pill mt-3 fw-bold" onclick="document.getElementById('sim-screen').innerHTML = '> Sistema reiniciado.<br>> Seleccione una opción:';">Reiniciar Terminal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function appendSim(text) {
+            document.getElementById('sim-screen').innerHTML += "<br>" + text;
+        }
+    </script>
+</section>
+
+</body>
+</html>

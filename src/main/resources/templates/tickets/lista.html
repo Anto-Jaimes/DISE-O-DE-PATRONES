@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Pagos y Tickets</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="page-title mb-0"><i class="bi bi-cash-stack text-primary"></i> Liquidación y Pagos</h2>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                    <tr>
+                        <th>Nro Ticket</th>
+                        <th>Fecha de Emisión</th>
+                        <th>Estado de Liquidación</th>
+                        <th>ID Apuesta (Ref)</th>
+                        <th>Ganancias Calculadas</th>
+                        <th class="text-end">Acciones de Pago</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="tk : ${tickets}">
+                        <td class="fw-bold text-muted">#<span th:text="${tk.id}">1</span></td>
+                        <td th:text="${tk.fechaEmision}">2026-06-16</td>
+                        <td>
+                            <span class="badge bg-success" th:if="${tk.estado == 'LIQUIDADO'}">LIQUIDADO</span>
+                            <span class="badge bg-warning text-dark" th:if="${tk.estado != 'LIQUIDADO'}">PENDIENTE</span>
+                        </td>
+                        <td>
+                            <span th:if="${tk.apuesta != null}" class="badge bg-secondary">
+                                Ref #<span th:text="${tk.apuesta.id}">2</span>
+                            </span>
+                        </td>
+                        <td class="fw-bold text-success">$ 0.00</td>
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-success fw-bold" title="Pagar Ganancias">
+                                <i class="bi bi-check2-circle"></i> Pagar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(tickets)}">
+                        <td colspan="6" class="text-center py-5 text-muted">
+                            <i class="bi bi-safe fs-1 d-block mb-3"></i>
+                            No hay tickets pendientes de liquidación.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

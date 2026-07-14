@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Configurar Terminal</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="mb-4">
+        <a href="/plataforma" class="text-decoration-none text-muted fw-bold"><i class="bi bi-arrow-left"></i> Volver a Terminal Virtual</a>
+    </div>
+
+    <div class="card shadow-sm border-0" style="max-width: 800px;">
+        <div class="card-header bg-white py-3">
+            <h4 class="card-title mb-0"><i class="bi bi-gear-fill"></i> Configurar Opción de Terminal</h4>
+        </div>
+
+        <div class="card-body p-4">
+            <form th:action="@{/plataforma/guardar}" th:object="${plataforma}" method="post">
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Clave Configuración / Etiqueta</label>
+                        <input type="text" class="form-control" th:field="*{etiquetaMenu}" required placeholder="Ej. Depósito Rápido" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold text-info">Tipo de Opción</label>
+                        <select class="form-select" th:field="*{tipoOpcion}">
+                            <option value="MENU">Botón de Menú</option>
+                            <option value="ACCION">Acción Inmediata</option>
+                            <option value="INGRESO">Ingreso de Datos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Monto / Valor Asociado</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light">$</span>
+                            <input type="number" step="0.01" class="form-control" th:field="*{montoMinimo}" placeholder="Ej. 10.00" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold text-danger">Acción de Sistema</label>
+                        <input type="text" class="form-control" th:field="*{accionBoton}" placeholder="Ej. APLICAR_BONO, ABRIR_TICKET" />
+                    </div>
+                </div>
+
+                <div class="mt-4 text-end">
+                    <button type="submit" class="btn btn-action rounded-pill px-5 fw-bold">
+                        <i class="bi bi-save"></i> Guardar Opción
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

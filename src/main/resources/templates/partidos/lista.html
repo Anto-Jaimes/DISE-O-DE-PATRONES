@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Eventos en Vivo</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="page-title mb-0"><i class="bi bi-dribbble text-primary"></i> Eventos Deportivos <span class="badge bg-danger ms-2 fs-6 align-middle">LIVE</span></h2>
+        <a th:href="@{/partidos/nueva}" class="btn btn-action rounded-pill px-4">
+            <i class="bi bi-plus-circle"></i> Nuevo Partido
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Local</th>
+                        <th>Visitante</th>
+                        <th>Deporte</th>
+                        <th>Ganador</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="op : ${partidos}">
+                        <td class="text-muted fw-bold" th:text="${op.id}">1</td>
+                        <td th:text="${op.fecha}">2026-06-15</td>
+                        <td class="fw-bold text-dark"><i class="bi bi-flag-fill text-success"></i> <span th:text="${op.equipo1}">Equipo 1</span></td>
+                        <td class="fw-bold text-dark"><i class="bi bi-flag-fill text-danger"></i> <span th:text="${op.equipo2}">Equipo 2</span></td>
+                        <td><span class="badge bg-secondary" th:text="${op.deporte}">Fútbol</span></td>
+                        <td>
+                            <span class="badge bg-warning text-dark" th:if="${op.ganador != null}" th:text="${op.ganador}"></span>
+                            <span class="badge bg-light text-muted border" th:if="${op.ganador == null}">Pendiente</span>
+                        </td>
+                        <td class="text-end">
+                            <a th:href="@{/partidos/editar/{id}(id=${op.id})}" class="btn btn-sm btn-outline-primary" title="Editar Cuotas">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a th:href="@{/partidos/eliminar/{id}(id=${op.id})}" class="btn btn-sm btn-outline-danger" title="Cerrar Mercado" onclick="return confirm('¿Seguro que deseas eliminar este partido?');">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(partidos)}">
+                        <td colspan="7" class="text-center py-5 text-muted">
+                            <i class="bi bi-calendar-x fs-1 d-block mb-3"></i>
+                            No hay eventos deportivos programados.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master}">
+<head>
+    <title>Historial de Apuestas</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="page-title mb-0"><i class="bi bi-receipt text-primary"></i> Historial de Apuestas</h2>
+        <a th:href="@{/apuestas/nueva}" class="btn btn-action rounded-pill px-4">
+            <i class="bi bi-plus-circle"></i> Nueva Apuesta Manual
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Fecha de Apuesta</th>
+                        <th>Monto Apostado</th>
+                        <th>Jugador (ID)</th>
+                        <th>Mercado (Partido)</th>
+                        <th>Resultado Esperado</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="op : ${apuestas}">
+                        <td class="fw-bold text-muted">#<span th:text="${op.id}">1</span></td>
+                        <td th:text="${op.fecha}">2026-06-16</td>
+                        <td class="fw-bold text-success">$<span th:text="${op.monto}">100.0</span></td>
+                        <td>
+                            <i class="bi bi-person-fill text-muted"></i>
+                            <span th:if="${op.usuario != null}" th:text="${op.usuario.nombre + ' ' + op.usuario.apellido}">Juan Perez</span>
+                            <span th:if="${op.usuario == null}" class="text-danger">Sin Jugador</span>
+                        </td>
+                        <td>
+                            <span th:if="${op.partido != null}" class="badge bg-dark" th:text="${op.partido.equipo1 + ' vs ' + op.partido.equipo2}">Eq1 vs Eq2</span>
+                            <span th:if="${op.partido == null}" class="text-danger">Sin Partido</span>
+                        </td>
+                        <td><span class="badge bg-info text-dark fw-bold" th:text="${op.resultadoApostado}">LOCAL</span></td>
+                        <td class="text-end">
+                            <a th:href="@{/apuestas/editar/{id}(id=${op.id})}" class="btn btn-sm btn-outline-primary" title="Modificar Apuesta">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a th:href="@{/apuestas/eliminar/{id}(id=${op.id})}" class="btn btn-sm btn-outline-danger" title="Cancelar Ticket" onclick="return confirm('¿Seguro que deseas anular esta apuesta?');">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(apuestas)}">
+                        <td colspan="7" class="text-center py-5 text-muted">
+                            <i class="bi bi-ticket-perforated fs-1 d-block mb-3"></i>
+                            No hay apuestas registradas en el sistema.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
