@@ -158,7 +158,7 @@ public class PartidoSI implements PartidoServicio {
         boolean esEquipo1 = true;
         boolean esSemifinal = false;
         
-        if (indexActual >= 0 && indexActual < OCTAVOS_INICIO) { 
+        if (indexActual < OCTAVOS_INICIO) { 
             nextIndex = OCTAVOS_INICIO + (indexActual / 2);
             esEquipo1 = (indexActual % 2 == 0);
         } else if (indexActual >= OCTAVOS_INICIO && indexActual <= OCTAVOS_FIN) { 
@@ -215,7 +215,7 @@ public class PartidoSI implements PartidoServicio {
         boolean esEquipo1 = true;
         boolean esSemifinal = false;
         
-        if (indexActual >= 0 && indexActual < OCTAVOS_INICIO) { 
+        if (indexActual < OCTAVOS_INICIO) { 
             nextIndex = OCTAVOS_INICIO + (indexActual / 2);
             esEquipo1 = (indexActual % 2 == 0);
         } else if (indexActual >= OCTAVOS_INICIO && indexActual <= OCTAVOS_FIN) { 
