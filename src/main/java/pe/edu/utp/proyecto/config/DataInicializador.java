@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 import pe.edu.utp.proyecto.modelo.Usuario;
 import pe.edu.utp.proyecto.modelo.Plataforma;
 import pe.edu.utp.proyecto.modelo.Partido;
-import pe.edu.utp.proyecto.repository.UsuarioR;
-import pe.edu.utp.proyecto.repository.Plataformarepositorio;
-import pe.edu.utp.proyecto.repository.PartidoR;
+import pe.edu.utp.proyecto.service.patron.repository.UsuarioR;
+import pe.edu.utp.proyecto.service.patron.repository.Plataformarepositorio;
+import pe.edu.utp.proyecto.service.patron.repository.PartidoR;
 
 @Component
 public class DataInicializador implements CommandLineRunner {

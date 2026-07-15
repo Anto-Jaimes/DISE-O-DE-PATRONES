@@ -2,7 +2,7 @@ package pe.edu.utp.proyecto.service.impl;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import pe.edu.utp.proyecto.modelo.Apuesta;
-import pe.edu.utp.proyecto.repository.ApuestaR;
+import pe.edu.utp.proyecto.service.patron.repository.ApuestaR;
 import pe.edu.utp.proyecto.service.interfaces.ApuestaServicio;
 
 @Service

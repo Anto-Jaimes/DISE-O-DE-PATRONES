@@ -1,7 +1,7 @@
 package pe.edu.utp.proyecto.service.impl;
 
 import pe.edu.utp.proyecto.modelo.Usuario;
-import pe.edu.utp.proyecto.repository.UsuarioR;
+import pe.edu.utp.proyecto.service.patron.repository.UsuarioR;
 import pe.edu.utp.proyecto.service.interfaces.UsuarioServicio;
 import org.springframework.stereotype.Service;
 import java.util.List;

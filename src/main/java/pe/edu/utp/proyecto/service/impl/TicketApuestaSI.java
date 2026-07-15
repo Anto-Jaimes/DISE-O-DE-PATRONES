@@ -1,7 +1,7 @@
 package pe.edu.utp.proyecto.service.impl;
 import pe.edu.utp.proyecto.service.patron.observer.TicketApuestaEvent;
 import pe.edu.utp.proyecto.modelo.TicketApuesta;
-import pe.edu.utp.proyecto.repository.TicketApuestaR;
+import pe.edu.utp.proyecto.service.patron.repository.TicketApuestaR;
 import pe.edu.utp.proyecto.service.interfaces.TicketApuestaServicio;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
