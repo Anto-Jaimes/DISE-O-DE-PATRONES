@@ -57,14 +57,10 @@ public class HomeController {
             String key = getMatchKey(p.getEquipo1(), p.getEquipo2());
             model.addAttribute(key, p);
         }
-        if (usuarioLogueado != null) {
-            boolean isAdmin = "ADMIN".equals(usuarioLogueado.getRol());
-            model.addAttribute("isAdmin", isAdmin);
-            
-            BitacoraSingleton.getInstancia().registrar((isAdmin ? "Administrador" : "Cliente") + " ingresó al Centro de Apuestas Mundial 2026: " + usuarioLogueado.getCodigo());
-        } else {
-            model.addAttribute("isAdmin", false);
-        }
+        boolean isAdmin = "ADMIN".equals(usuarioLogueado.getRol());
+        model.addAttribute("isAdmin", isAdmin);
+        
+        BitacoraSingleton.getInstancia().registrar((isAdmin ? "Administrador" : "Cliente") + " ingresó al Centro de Apuestas Mundial 2026: " + usuarioLogueado.getCodigo());
 
         return "index";
     }

@@ -1,4 +1,5 @@
 package pe.edu.utp.proyecto.service.impl;
+import java.util.List;
 import pe.edu.utp.proyecto.modelo.Plataforma;
 import pe.edu.utp.proyecto.repository.Plataformarepositorio;
 import pe.edu.utp.proyecto.service.interfaces.PlataformaServicio;
