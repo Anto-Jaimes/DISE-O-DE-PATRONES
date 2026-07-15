@@ -16,4 +16,7 @@ public interface PartidoServicio {
     Partido actualizar(String id, Partido c);
     /** Elimina un partido por su identificador */
     void eliminar(String id);
+    
+    /** Resuelve el partido, procesa apuestas y avanza en el bracket */
+    pe.edu.utp.proyecto.modelo.Usuario resolverYProcesarPartido(Partido partido, String ganadorDeterminado, pe.edu.utp.proyecto.modelo.Usuario usuarioLogueado);
 }

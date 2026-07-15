@@ -40,10 +40,9 @@ public class DataInicializador implements CommandLineRunner {
         }
         
         // BORRAR SIEMPRE PARA REINICIAR Y CARGAR EL NUEVO FIXTURE
-        partidoRepo.deleteAll();
-        
-        if (partidoRepo.count() == 0) {
-            log.info(">>> CREANDO PARTIDOS DEL MUNDIAL 2026 (16avos hasta la Final)...");
+        if (partidoRepo.count() < 32) {
+            log.info(">>> FALTAN PARTIDOS EN BD. LIMPIANDO Y CREANDO PARTIDOS DEL MUNDIAL 2026...");
+            partidoRepo.deleteAll();
             
             // ================= 16AVOS DE FINAL =================
             // Lado Izquierdo

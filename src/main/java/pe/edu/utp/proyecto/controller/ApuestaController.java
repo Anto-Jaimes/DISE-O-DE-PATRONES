@@ -21,11 +21,13 @@ public class ApuestaController {
     private final ApuestaServicio apuestaServicio;
     private final UsuarioServicio usuarioServicio;
     private final PartidoServicio partidoServicio;
+    private final pe.edu.utp.proyecto.service.patron.facade.ApuestaFacade apuestaFacade;
 
-    public ApuestaController(ApuestaServicio ls, UsuarioServicio os, PartidoServicio cs) {
+    public ApuestaController(ApuestaServicio ls, UsuarioServicio os, PartidoServicio cs, pe.edu.utp.proyecto.service.patron.facade.ApuestaFacade apuestaFacade) {
         this.apuestaServicio = ls;
         this.usuarioServicio = os;
         this.partidoServicio = cs;
+        this.apuestaFacade = apuestaFacade;
     }
 
     @GetMapping
@@ -59,11 +61,10 @@ public class ApuestaController {
         }
 
         if (apuesta.getId() == null) {
-            apuestaServicio.iniciarApuesta(apuesta);
-            if (usuarioLogueado != null && usuarioLogueado.getSaldo() >= apuesta.getMonto()) {
-                double nuevoSaldo = usuarioLogueado.getSaldo() - apuesta.getMonto();
-                usuarioLogueado.setSaldo(nuevoSaldo);
-                usuarioServicio.actualizar(usuarioLogueado.getId(), usuarioLogueado);
+            // Se delega a la Fachada la orquestación del proceso completo
+            apuestaFacade.registrarNuevaApuesta(apuesta, usuarioLogueado);
+            if (usuarioLogueado != null) {
+                // Actualizamos el usuario en sesión con el nuevo saldo
                 session.setAttribute("usuarioLogueado", usuarioLogueado);
             }
         } else {

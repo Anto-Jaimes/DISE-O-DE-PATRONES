@@ -93,18 +93,52 @@
             box-shadow: 0 5px 20px rgba(0, 240, 255, 0.35);
         }
 
+        /* Dynamic Theme Text */
+        .text-theme {
+            color: #fff !important;
+        }
+        .text-theme-50 {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        body.light-mode .text-theme {
+            color: #1e293b !important;
+        }
+        body.light-mode .text-theme-50 {
+            color: rgba(30, 41, 59, 0.6) !important;
+        }
+
         /* Bracket Styles */
         .bracket-node {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 12px 18px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 8px;
             margin-bottom: 20px;
             position: relative;
         }
 
         body.light-mode .bracket-node {
-            background: rgba(0, 0, 0, 0.01);
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .final-node {
+            background: #0284c7 !important;
+            border: 2px solid #38bdf8 !important;
+        }
+        body.light-mode .final-node {
+            background: #bae6fd !important;
+            border-color: #0ea5e9 !important;
+        }
+
+        .third-node {
+            background: #1e293b !important;
+            border: 1px solid #475569 !important;
+        }
+        body.light-mode .third-node {
+            background: #e2e8f0 !important;
+            border-color: #94a3b8 !important;
         }
 
         /* Standings table styling */
@@ -137,7 +171,7 @@
         body.light-mode .mascot-banner {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(219, 234, 254, 0.7) 100%);
         }
-        body.light-mode .text-white-50 {
+        body.light-mode .text-theme-50 {
             color: var(--text-muted) !important;
         }
         body.light-mode .border-secondary {
@@ -210,38 +244,38 @@
                         
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Tipo de Documento</label>
-                                <select class="form-select bg-dark text-white border-secondary fw-bold" name="tipoDocumento" required>
+                                <label class="form-label fw-bold text-theme-50">Tipo de Documento</label>
+                                <select class="form-select bg-dark text-theme border-secondary fw-bold" name="tipoDocumento" required>
                                     <option value="DNI">DNI - Documento Nacional de Identidad</option>
                                     <option value="PASAPORTE">Pasaporte</option>
                                     <option value="CE">C.E. - Carnet de Extranjería</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Número de Documento</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="dni" placeholder="Número de Documento" required>
+                                <label class="form-label fw-bold text-theme-50">Número de Documento</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="dni" placeholder="Número de Documento" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Nombres</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="nombre" placeholder="Nombres" required>
+                                <label class="form-label fw-bold text-theme-50">Nombres</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="nombre" placeholder="Nombres" required>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Apellidos</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="apellido" placeholder="Apellidos" required>
+                                <label class="form-label fw-bold text-theme-50">Apellidos</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="apellido" placeholder="Apellidos" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control bg-dark text-white border-secondary" name="fechaNacimiento" required>
+                                <label class="form-label fw-bold text-theme-50">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control bg-dark text-theme border-secondary" name="fechaNacimiento" required>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Género</label>
-                                <select class="form-select bg-dark text-white border-secondary" name="genero" required>
+                                <label class="form-label fw-bold text-theme-50">Género</label>
+                                <select class="form-select bg-dark text-theme border-secondary" name="genero" required>
                                     <option value="MASCULINO">Masculino</option>
                                     <option value="FEMENINO">Femenino</option>
                                     <option value="OTRO">Otro</option>
@@ -250,38 +284,38 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-white-50">Correo electrónico</label>
-                            <input type="email" class="form-control bg-dark text-white border-secondary" name="email" placeholder="Correo electrónico" required>
+                            <label class="form-label fw-bold text-theme-50">Correo electrónico</label>
+                            <input type="email" class="form-control bg-dark text-theme border-secondary" name="email" placeholder="Correo electrónico" required>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Contraseña</label>
-                                <input type="password" class="form-control bg-dark text-white border-secondary" name="contrasena" placeholder="Contraseña" required>
+                                <label class="form-label fw-bold text-theme-50">Contraseña</label>
+                                <input type="password" class="form-control bg-dark text-theme border-secondary" name="contrasena" placeholder="Contraseña" required>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Teléfono Móvil</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="telefono" placeholder="Teléfono móvil" required>
+                                <label class="form-label fw-bold text-theme-50">Teléfono Móvil</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="telefono" placeholder="Teléfono móvil" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-white-50">Dirección (Dónde vives actualmente)</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" name="direccion" placeholder="Dirección actual" required>
+                            <label class="form-label fw-bold text-theme-50">Dirección (Dónde vives actualmente)</label>
+                            <input type="text" class="form-control bg-dark text-theme border-secondary" name="direccion" placeholder="Dirección actual" required>
                         </div>
 
                         <div class="row mb-4">
                             <div class="col-md-4">
-                                <label class="form-label fw-bold text-white-50">Departamento</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="departamento" placeholder="Departamento" required>
+                                <label class="form-label fw-bold text-theme-50">Departamento</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="departamento" placeholder="Departamento" required>
                             </div>
                             <div class="col-md-4 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Provincia</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="provincia" placeholder="Provincia" required>
+                                <label class="form-label fw-bold text-theme-50">Provincia</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="provincia" placeholder="Provincia" required>
                             </div>
                             <div class="col-md-4 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Distrito</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="distrito" placeholder="Distrito" required>
+                                <label class="form-label fw-bold text-theme-50">Distrito</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="distrito" placeholder="Distrito" required>
                             </div>
                         </div>
 
@@ -289,10 +323,10 @@
                         <div class="p-3 mb-4 rounded-3 border border-secondary" style="background: rgba(0,0,0,0.25);">
                             <label class="form-label fw-bold text-neon-cyan"><i class="bi bi-plus-circle"></i> Cargar Saldo Adicional (Opcional - Recibes S/ 10.00 de regalo)</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-dark text-white border-secondary">S/</span>
-                                <input type="number" step="0.50" min="0" class="form-control bg-dark text-white border-secondary fw-bold" name="montoAdicional" placeholder="Ej. 50.00" value="0.0">
+                                <span class="input-group-text bg-dark text-theme border-secondary">S/</span>
+                                <input type="number" step="0.50" min="0" class="form-control bg-dark text-theme border-secondary fw-bold" name="montoAdicional" placeholder="Ej. 50.00" value="0.0">
                             </div>
-                            <div class="form-text text-white-50 mt-1">El monto inicial total será de 10 soles + lo que decidas agregar.</div>
+                            <div class="form-text text-theme-50 mt-1">El monto inicial total será de 10 soles + lo que decidas agregar.</div>
                         </div>
 
                         <!-- REALIZAR APUESTA AL REGISTRAR (OPCIONAL) -->
@@ -300,8 +334,8 @@
                             <label class="form-label fw-bold text-neon-cyan"><i class="bi bi-ticket-perforated"></i> Primera Apuesta Rápida (Opcional)</label>
                             
                             <div class="mb-3">
-                                <label class="form-label text-white-50 small">Selecciona el Partido</label>
-                                <select class="form-select bg-dark text-white border-secondary" name="partidoId">
+                                <label class="form-label text-theme-50 small">Selecciona el Partido</label>
+                                <select class="form-select bg-dark text-theme border-secondary" name="partidoId">
                                     <option value="">-- Sin Apuesta Inicial --</option>
                                     <option th:each="ptd : ${listaPartidos}"
                                             th:if="${ptd.ganador == null}"
@@ -313,34 +347,34 @@
                             
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label text-white-50 small">Pronóstico</label>
-                                    <select class="form-select bg-dark text-white border-secondary" name="resultadoApostado">
+                                    <label class="form-label text-theme-50 small">Pronóstico</label>
+                                    <select class="form-select bg-dark text-theme border-secondary" name="resultadoApostado">
                                         <option value="">-- Seleccionar --</option>
                                         <option value="EQUIPO 1">Equipo 1 (1)</option>
                                         <option value="EQUIPO 2">Equipo 2 (2)</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label text-white-50 small">Monto a Apostar (S/)</label>
-                                    <input type="number" step="0.50" min="1" class="form-control bg-dark text-white border-secondary" name="montoApuesta" placeholder="Ej. 10.00" value="">
+                                    <label class="form-label text-theme-50 small">Monto a Apostar (S/)</label>
+                                    <input type="number" step="0.50" min="1" class="form-control bg-dark text-theme border-secondary" name="montoApuesta" placeholder="Ej. 10.00" value="">
                                 </div>
                             </div>
                             
                             <!-- Opciones Adicionales (Tarjetas) -->
                             <div class="mt-2 border-top border-secondary pt-3">
-                                <label class="form-label fw-bold text-white-50 small"><i class="bi bi-ui-radios-grid"></i> Opciones Adicionales del Partido</label>
+                                <label class="form-label fw-bold text-theme-50 small"><i class="bi bi-ui-radios-grid"></i> Opciones Adicionales del Partido</label>
                                 <div class="row g-3">
                                     <div class="col-md-4">
-                                        <label class="small text-white-50 mb-1">Total Tarjetas Rojas</label>
-                                        <input type="number" min="0" max="10" class="form-control bg-dark text-white border-secondary" name="propTarjetasRojas" placeholder="Ej. 0">
+                                        <label class="small text-theme-50 mb-1">Total Tarjetas Rojas</label>
+                                        <input type="number" min="0" max="10" class="form-control bg-dark text-theme border-secondary" name="propTarjetasRojas" placeholder="Ej. 0">
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="small text-white-50 mb-1">Total Tarjetas Amarillas</label>
-                                        <input type="number" min="0" max="20" class="form-control bg-dark text-white border-secondary" name="propTarjetasAmarillas" placeholder="Ej. 3">
+                                        <label class="small text-theme-50 mb-1">Total Tarjetas Amarillas</label>
+                                        <input type="number" min="0" max="20" class="form-control bg-dark text-theme border-secondary" name="propTarjetasAmarillas" placeholder="Ej. 3">
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="small text-white-50 mb-1">Habr Expulsado?</label>
-                                        <select class="form-select bg-dark text-white border-secondary" name="propExpulsado">
+                                        <label class="small text-theme-50 mb-1">Habr Expulsado?</label>
+                                        <select class="form-select bg-dark text-theme border-secondary" name="propExpulsado">
                                             <option value="">-- Seleccionar --</option>
                                             <option value="NO">No, ninguno</option>
                                             <option value="SI">S, habr expulsado</option>
@@ -352,7 +386,7 @@
 
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="ageCheck" required>
-                            <label class="form-check-label small text-white-50" for="ageCheck">
+                            <label class="form-check-label small text-theme-50" for="ageCheck">
                                 Soy mayor de 18 años y estoy de acuerdo con el Reglamento de Juego & Políticas de Privacidad de Apuesta Total.
                             </label>
                         </div>
@@ -373,8 +407,8 @@
             <div class="card hub-card p-4">
                 <h4 class="fw-bold mb-4 text-neon-cyan"><i class="bi bi-cash-stack"></i> Edición de Apuestas</h4>
                 <div class="table-responsive">
-                    <table class="table table-dark table-hover align-middle border-secondary">
-                        <thead class="text-white-50">
+                    <table class="table table-hover align-middle border-secondary">
+                        <thead class="text-theme-50">
                             <tr>
                                 <th>Cód. Ticket</th>
                                 <th>DNI</th>
@@ -424,7 +458,7 @@
                                 </td>
                             </tr>
                             <tr th:if="${#lists.isEmpty(todasLasApuestas)}">
-                                <td colspan="10" class="text-center text-white-50">No hay apuestas registradas.</td>
+                                <td colspan="10" class="text-center text-theme-50">No hay apuestas registradas.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -436,7 +470,7 @@
             
             
             <!-- Árbol Eliminatorio (Full Width - 5 Stages) -->
-            <div class="card bg-dark border-0 shadow-lg" style="border-radius: 15px; overflow: hidden; background: linear-gradient(145deg, #0f172a, #1e293b) !important;">
+            <div class="card hub-card border-0 shadow-lg" style="border-radius: 15px; overflow: hidden;">
                 <h4 class="fw-bold mb-4 text-neon-cyan p-4 pb-0"><i class="bi bi-diagram-3-fill"></i> Árbol Eliminatorio - Mundial 2026</h4>
                 <div class="card-body p-4 pt-0" style="overflow-x: auto;">
                     
@@ -448,16 +482,16 @@
                             <!-- 16avos Left -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
                                 <th:block th:each="i : ${#numbers.sequence(0, 7)}">
-                                    <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 4px 0; text-align: center; font-size: 0.75rem;"
+                                    <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 4px 0; text-align: center; font-size: 0.75rem;"
                                          th:with="partido=${(listaPartidos != null and listaPartidos.size() > i) ? listaPartidos[i] : null}">
-                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                             </div>
                                             <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -477,16 +511,16 @@
                             <!-- 8vos Left -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
                                 <th:block th:each="i : ${#numbers.sequence(16, 19)}">
-                                    <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 8px 0; text-align: center; font-size: 0.75rem;"
+                                    <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 8px 0; text-align: center; font-size: 0.75rem;"
                                          th:with="partido=${(listaPartidos != null and listaPartidos.size() > i) ? listaPartidos[i] : null}">
-                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                             </div>
                                             <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -506,16 +540,16 @@
                             <!-- 4tos Left -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
                                 <th:block th:each="i : ${#numbers.sequence(24, 25)}">
-                                    <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 16px 0; text-align: center; font-size: 0.75rem;"
+                                    <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 16px 0; text-align: center; font-size: 0.75rem;"
                                          th:with="partido=${(listaPartidos != null and listaPartidos.size() > i) ? listaPartidos[i] : null}">
-                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                             </div>
                                             <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -534,16 +568,16 @@
 
                             <!-- Semi Left -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
-                                <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 32px 0; text-align: center; font-size: 0.75rem;"
+                                <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 32px 0; text-align: center; font-size: 0.75rem;"
                                      th:with="partido=${(listaPartidos != null and listaPartidos.size() > 28) ? listaPartidos[28] : null}">
-                                    <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                    <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                         <div class="d-flex align-items-center">
                                             <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                             <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                         </div>
                                         <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                    <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                         <div class="d-flex align-items-center">
                                             <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                             <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -565,16 +599,16 @@
                         <div class="bracket-center" style="display: flex; flex-direction: column; justify-content: center; width: 10%; align-items: center;">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/FIFA_World_Cup_2026_Logo.png/640px-FIFA_World_Cup_2026_Logo.png" width="60" style="margin-bottom: 20px; filter: drop-shadow(0 0 10px #38bdf8);">
                             <h6 class="text-neon-cyan fw-bold">FINAL</h6>
-                            <div class="bracket-node shadow-lg" style="background: #0284c7; border: 2px solid #38bdf8; border-radius: 12px; padding: 12px; width: 120px; text-align: center;"
+                            <div class="bracket-node final-node shadow-lg" style="border-radius: 12px; padding: 12px; width: 120px; text-align: center;"
                                  th:with="partido=${(listaPartidos != null and listaPartidos.size() > 31) ? listaPartidos[31] : null}">
-                                <div class="d-flex justify-content-between align-items-center mb-1 text-white fw-bold">
+                                <div class="d-flex justify-content-between align-items-center mb-1 text-theme fw-bold">
                                     <div class="d-flex align-items-center">
                                         <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="18" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                         <span th:text="${partido?.equipo1 ?: 'TBD'}" style="font-size: 0.75rem;">TBD</span>
                                     </div>
                                     <span class="badge bg-light text-dark" th:text="${partido?.golesEquipo1}"></span>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center text-white fw-bold">
+                                <div class="d-flex justify-content-between align-items-center text-theme fw-bold">
                                     <div class="d-flex align-items-center">
                                         <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="18" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                         <span th:text="${partido?.equipo2 ?: 'TBD'}" style="font-size: 0.75rem;">TBD</span>
@@ -588,6 +622,33 @@
                                                 onclick="openEditMatchModal(this)">Editar</button>
                                         </div>
                             </div>
+
+                            <div class="mt-4">
+                                <h6 class="text-secondary fw-bold" style="font-size: 0.8rem;">TERCER PUESTO</h6>
+                                <div class="bracket-node third-node shadow-sm" style="border-radius: 12px; padding: 12px; width: 120px; text-align: center;"
+                                     th:with="partido=${(listaPartidos != null and listaPartidos.size() > 30) ? listaPartidos[30] : null}">
+                                    <div class="d-flex justify-content-between align-items-center mb-1 text-theme fw-bold">
+                                        <div class="d-flex align-items-center">
+                                            <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="18" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
+                                            <span th:text="${partido?.equipo1 ?: 'TBD'}" style="font-size: 0.75rem;">TBD</span>
+                                        </div>
+                                        <span class="badge bg-light text-dark" th:text="${partido?.golesEquipo1}"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center text-theme fw-bold">
+                                        <div class="d-flex align-items-center">
+                                            <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="18" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
+                                            <span th:text="${partido?.equipo2 ?: 'TBD'}" style="font-size: 0.75rem;">TBD</span>
+                                        </div>
+                                        <span class="badge bg-light text-dark" th:text="${partido?.golesEquipo2}"></span>
+                                    </div>
+                                    <div class="mt-1 text-center" th:if="${isAdmin}">
+                                        <button class="btn btn-sm btn-light text-dark p-0 border-0 fw-bold" style="font-size: 0.65rem; text-decoration: none;"
+                                            th:data-id="${partido?.id}" th:data-equipo1="${partido?.equipo1}" th:data-equipo2="${partido?.equipo2}" 
+                                            th:data-ganador="${partido?.ganador}" th:data-goles1="${partido?.golesEquipo1}" th:data-goles2="${partido?.golesEquipo2}"
+                                            onclick="openEditMatchModal(this)">Editar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- RIGHT SIDE -->
@@ -596,16 +657,16 @@
                             <!-- 16avos Right -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
                                 <th:block th:each="i : ${#numbers.sequence(8, 15)}">
-                                    <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 4px 0; text-align: center; font-size: 0.75rem;"
+                                    <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 4px 0; text-align: center; font-size: 0.75rem;"
                                          th:with="partido=${(listaPartidos != null and listaPartidos.size() > i) ? listaPartidos[i] : null}">
-                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                             </div>
                                             <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -625,16 +686,16 @@
                             <!-- 8vos Right -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
                                 <th:block th:each="i : ${#numbers.sequence(20, 23)}">
-                                    <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 8px 0; text-align: center; font-size: 0.75rem;"
+                                    <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 8px 0; text-align: center; font-size: 0.75rem;"
                                          th:with="partido=${(listaPartidos != null and listaPartidos.size() > i) ? listaPartidos[i] : null}">
-                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                             </div>
                                             <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -654,16 +715,16 @@
                             <!-- 4tos Right -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
                                 <th:block th:each="i : ${#numbers.sequence(26, 27)}">
-                                    <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 16px 0; text-align: center; font-size: 0.75rem;"
+                                    <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 16px 0; text-align: center; font-size: 0.75rem;"
                                          th:with="partido=${(listaPartidos != null and listaPartidos.size() > i) ? listaPartidos[i] : null}">
-                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                             </div>
                                             <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                        <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                             <div class="d-flex align-items-center">
                                                 <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                                 <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -682,16 +743,16 @@
 
                             <!-- Semi Right -->
                             <div class="bracket-column" style="display: flex; flex-direction: column; justify-content: space-around; width: 22%;">
-                                <div class="bracket-node" style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 8px; margin: 32px 0; text-align: center; font-size: 0.75rem;"
+                                <div class="bracket-node" style="/*bg-theme*/ border-radius: 8px; padding: 8px; margin: 32px 0; text-align: center; font-size: 0.75rem;"
                                      th:with="partido=${(listaPartidos != null and listaPartidos.size() > 29) ? listaPartidos[29] : null}">
-                                    <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                    <div class="d-flex justify-content-between align-items-center mb-1" th:classappend="${partido?.ganador == 'EQUIPO 1' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                         <div class="d-flex align-items-center">
                                             <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo1) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                             <span th:text="${partido?.equipo1 ?: 'TBD'}">TBD</span>
                                         </div>
                                         <span class="badge bg-secondary" th:text="${partido?.golesEquipo1}"></span>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-white-50'}">
+                                    <div class="d-flex justify-content-between align-items-center" th:classappend="${partido?.ganador == 'EQUIPO 2' ? 'text-neon-cyan fw-bold' : 'text-theme-50'}">
                                         <div class="d-flex align-items-center">
                                             <img th:src="${partido != null ? 'https://flagcdn.com/w40/' + @flagUtils.getCode(partido.equipo2) + '.png' : ''}" width="16" class="me-1" style="border-radius:2px;" onerror="this.style.display='none'">
                                             <span th:text="${partido?.equipo2 ?: 'TBD'}">TBD</span>
@@ -869,8 +930,8 @@
             <div class="card hub-card p-4">
                 <h4 class="fw-bold mb-4 text-neon-cyan"><i class="bi bi-cash-stack"></i> Tablero de Liquidación de Apuestas</h4>
                 <div class="table-responsive">
-                    <table class="table table-dark table-hover align-middle border-secondary">
-                        <thead class="text-white-50">
+                    <table class="table table-hover align-middle border-secondary">
+                        <thead class="text-theme-50">
                             <tr>
                                 <th>Cód. Ticket</th>
                                 <th>DNI</th>
@@ -900,10 +961,10 @@
                                 <td th:text="${(apuesta.propTarjetasRojas != null ? apuesta.propTarjetasRojas : '-') + ' / ' + (apuesta.propTarjetasAmarillas != null ? apuesta.propTarjetasAmarillas : '-')}"></td>
                                 <td th:text="${'S/ ' + apuesta.monto}"></td>
                                 <td>
-                                    <span class="badge" th:classappend="${apuesta.estado == 'GANADA' ? 'bg-success' : (apuesta.estado == 'PERDIDA' ? 'bg-danger' : 'bg-warning')}" th:text="${apuesta.estado == 'GANADA' ? 'Por Pagar' : (apuesta.estado == 'PERDIDA' ? 'Perdió' : 'En Proceso')}"></span>
+                                    <span class="badge" th:classappend="${apuesta.estado == 'GANADA' ? 'bg-success' : (apuesta.estado == 'PERDIDA' ? 'bg-danger' : (apuesta.estado == 'PAGADO' ? 'bg-primary' : 'bg-warning'))}" th:text="${apuesta.estado == 'GANADA' ? 'Por Pagar' : (apuesta.estado == 'PERDIDA' ? 'Perdió' : (apuesta.estado == 'PAGADO' ? 'Pagado' : 'En Proceso'))}"></span>
                                 </td>
-                                <td class="fw-bold" th:classappend="${apuesta.estado == 'GANADA' ? 'text-success' : (apuesta.estado == 'PERDIDA' ? 'text-danger' : 'text-neon-cyan')}" 
-                                    th:text="${apuesta.estado == 'GANADA' ? 'S/ ' + apuesta.ganancia : (apuesta.estado == 'PERDIDA' ? 'S/ 0.00' : 'S/ 0.00')}">
+                                <td class="fw-bold" th:classappend="${(apuesta.estado == 'GANADA' or apuesta.estado == 'PAGADO') ? 'text-success' : (apuesta.estado == 'PERDIDA' ? 'text-danger' : 'text-neon-cyan')}" 
+                                    th:text="${(apuesta.estado == 'GANADA' or apuesta.estado == 'PAGADO') ? 'S/ ' + apuesta.ganancia : 'S/ 0.00'}">
                                 </td>
                                 <td>
                                     <button class="btn btn-sm btn-outline-info me-1" 
@@ -920,7 +981,7 @@
                                 </td>
                             </tr>
                             <tr th:if="${#lists.isEmpty(todasLasApuestas)}">
-                                <td colspan="10" class="text-center text-white-50">No hay apuestas registradas.</td>
+                                <td colspan="10" class="text-center text-theme-50">No hay apuestas registradas.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -945,11 +1006,11 @@
                              onmouseout="this.classList.remove('border-neon-cyan')">
                             <div class="card-body pb-2">
                                 <i class="bi bi-person-circle text-neon-cyan mb-2" style="font-size: 3rem;"></i>
-                                <h5 class="card-title fw-bold text-white mb-1" th:text="${u.nombre}">Nombre</h5>
-                                <p class="card-text text-white-50 small mb-2" th:text="${u.codigo}">@codigo</p>
+                                <h5 class="card-title fw-bold text-theme mb-1" th:text="${u.nombre}">Nombre</h5>
+                                <p class="card-text text-theme-50 small mb-2" th:text="${u.codigo}">@codigo</p>
                                 <span class="badge rounded-pill text-black fw-bold px-3 py-2 mb-2" style="background: var(--wc-green);" th:text="'Saldo: S/ ' + ${#numbers.formatDecimal(u.saldo, 1, 2)}">Saldo: S/ 0.00</span>
                             </div>
-                            <div class="card-footer border-secondary text-white-50 small py-2 bg-transparent" style="font-size: 0.8rem;">
+                            <div class="card-footer border-secondary text-theme-50 small py-2 bg-transparent" style="font-size: 0.8rem;">
                                 Haz clic para ver sus apuestas <i class="bi bi-arrow-right"></i>
                             </div>
                         </div>
@@ -960,7 +1021,7 @@
                 <div th:if="${!isAdmin}">
                     <!-- Botón explícito para Salir -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="fw-bold text-white mb-0">Resumen de Cuenta</h5>
+                        <h5 class="fw-bold text-theme mb-0">Resumen de Cuenta</h5>
                         <a href="/logout" class="btn btn-danger fw-bold rounded-pill px-4 shadow">
                             <i class="bi bi-box-arrow-right"></i> Volver al Login (Cerrar Sesión)
                         </a>
@@ -970,13 +1031,13 @@
                     <div class="row g-3 mb-4">
                         <div class="col-md-6">
                             <div class="p-3 bg-dark border border-secondary rounded shadow-sm text-center">
-                                <div class="small text-white-50"><i class="bi bi-wallet2 text-neon-cyan"></i> Saldo Disponible para Apostar</div>
+                                <div class="small text-theme-50"><i class="bi bi-wallet2 text-neon-cyan"></i> Saldo Disponible para Apostar</div>
                                 <h2 class="fw-bold mb-0 text-neon-cyan" th:text="'S/ ' + ${#numbers.formatDecimal(session.usuarioLogueado.saldo, 1, 2)}">S/ 0.00</h2>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="p-3 bg-dark border border-secondary rounded shadow-sm text-center">
-                                <div class="small text-white-50"><i class="bi bi-ticket-perforated text-warning"></i> Total de Tickets Jugados</div>
+                                <div class="small text-theme-50"><i class="bi bi-ticket-perforated text-warning"></i> Total de Tickets Jugados</div>
                                 <h2 class="fw-bold mb-0 text-warning" th:text="${#lists.size(misApuestas)}">0</h2>
                             </div>
                         </div>
@@ -984,8 +1045,8 @@
                     
                     <!-- Tabla de Mis Apuestas -->
                     <div class="table-responsive">
-                        <table class="table table-dark table-hover align-middle border-secondary">
-                            <thead class="text-white-50">
+                        <table class="table table-hover align-middle border-secondary">
+                            <thead class="text-theme-50">
                                 <tr>
                                     <th>Fecha</th>
                                     <th>Ticket</th>
@@ -999,7 +1060,7 @@
                             <tbody>
                                 <tr th:each="apuesta : ${misApuestas}">
                                     <td th:text="${#temporals.format(apuesta.fecha, 'dd/MM/yyyy HH:mm')}"></td>
-                                    <td class="fw-bold text-white-50" th:text="${apuesta.codigoTicket}"></td>
+                                    <td class="fw-bold text-theme-50" th:text="${apuesta.codigoTicket}"></td>
                                     <td th:text="${apuesta.equipo1 + ' vs ' + apuesta.equipo2}"></td>
                                     <td th:text="${apuesta.resultadoApostado}"></td>
                                     <td th:text="${'S/ ' + #numbers.formatDecimal(apuesta.monto, 1, 2)}"></td>
@@ -1015,7 +1076,7 @@
                                     </td>
                                 </tr>
                                 <tr th:if="${#lists.isEmpty(misApuestas)}">
-                                    <td colspan="7" class="text-center text-white-50 py-4">Aún no tienes apuestas registradas.</td>
+                                    <td colspan="7" class="text-center text-theme-50 py-4">Aún no tienes apuestas registradas.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1059,7 +1120,7 @@
     <!-- Modal para Editar Perfil (Admin) -->
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-content bg-dark text-theme border-secondary">
                 <div class="modal-header border-secondary">
                     <h5 class="modal-title fw-bold text-neon-cyan"><i class="bi bi-person-lines-fill"></i> Editar tu perfil</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1081,38 +1142,38 @@
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Tipo de Documento</label>
-                                <select class="form-select bg-dark text-white border-secondary fw-bold" name="tipoDocumento" required>
+                                <label class="form-label fw-bold text-theme-50">Tipo de Documento</label>
+                                <select class="form-select bg-dark text-theme border-secondary fw-bold" name="tipoDocumento" required>
                                     <option value="DNI" th:selected="${session.usuarioLogueado.tipoDocumento == 'DNI'}">DNI - Documento Nacional de Identidad</option>
                                     <option value="PASAPORTE" th:selected="${session.usuarioLogueado.tipoDocumento == 'PASAPORTE'}">Pasaporte</option>
                                     <option value="CE" th:selected="${session.usuarioLogueado.tipoDocumento == 'CE'}">C.E. - Carnet de Extranjería</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Número de Documento</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="dni" th:value="${session.usuarioLogueado.dni}" required>
+                                <label class="form-label fw-bold text-theme-50">Número de Documento</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="dni" th:value="${session.usuarioLogueado.dni}" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Nombres</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="nombre" th:value="${session.usuarioLogueado.nombre}" required>
+                                <label class="form-label fw-bold text-theme-50">Nombres</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="nombre" th:value="${session.usuarioLogueado.nombre}" required>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Apellidos</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="apellido" th:value="${session.usuarioLogueado.apellido}" required>
+                                <label class="form-label fw-bold text-theme-50">Apellidos</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="apellido" th:value="${session.usuarioLogueado.apellido}" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control bg-dark text-white border-secondary" name="fechaNacimiento" th:value="${session.usuarioLogueado.fechaNacimiento}" required>
+                                <label class="form-label fw-bold text-theme-50">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control bg-dark text-theme border-secondary" name="fechaNacimiento" th:value="${session.usuarioLogueado.fechaNacimiento}" required>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Género</label>
-                                <select class="form-select bg-dark text-white border-secondary" name="genero" required>
+                                <label class="form-label fw-bold text-theme-50">Género</label>
+                                <select class="form-select bg-dark text-theme border-secondary" name="genero" required>
                                     <option value="MASCULINO" th:selected="${session.usuarioLogueado.genero == 'MASCULINO'}">Masculino</option>
                                     <option value="FEMENINO" th:selected="${session.usuarioLogueado.genero == 'FEMENINO'}">Femenino</option>
                                     <option value="OTRO" th:selected="${session.usuarioLogueado.genero == 'OTRO'}">Otro</option>
@@ -1121,38 +1182,38 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-white-50">Correo electrónico</label>
-                            <input type="email" class="form-control bg-dark text-white border-secondary" name="email" th:value="${session.usuarioLogueado.email}" required>
+                            <label class="form-label fw-bold text-theme-50">Correo electrónico</label>
+                            <input type="email" class="form-control bg-dark text-theme border-secondary" name="email" th:value="${session.usuarioLogueado.email}" required>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-bold text-white-50">Contraseña (Dejar en blanco para mantener la actual)</label>
-                                <input type="password" class="form-control bg-dark text-white border-secondary" name="contrasena" placeholder="Nueva contraseña">
+                                <label class="form-label fw-bold text-theme-50">Contraseña (Dejar en blanco para mantener la actual)</label>
+                                <input type="password" class="form-control bg-dark text-theme border-secondary" name="contrasena" placeholder="Nueva contraseña">
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Teléfono Móvil</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="telefono" th:value="${session.usuarioLogueado.telefono}" required>
+                                <label class="form-label fw-bold text-theme-50">Teléfono Móvil</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="telefono" th:value="${session.usuarioLogueado.telefono}" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-white-50">Dirección (Dónde vives actualmente)</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" name="direccion" th:value="${session.usuarioLogueado.direccion}" required>
+                            <label class="form-label fw-bold text-theme-50">Dirección (Dónde vives actualmente)</label>
+                            <input type="text" class="form-control bg-dark text-theme border-secondary" name="direccion" th:value="${session.usuarioLogueado.direccion}" required>
                         </div>
 
                         <div class="row mb-4">
                             <div class="col-md-4">
-                                <label class="form-label fw-bold text-white-50">Departamento</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="departamento" th:value="${session.usuarioLogueado.departamento}" required>
+                                <label class="form-label fw-bold text-theme-50">Departamento</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="departamento" th:value="${session.usuarioLogueado.departamento}" required>
                             </div>
                             <div class="col-md-4 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Provincia</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="provincia" th:value="${session.usuarioLogueado.provincia}" required>
+                                <label class="form-label fw-bold text-theme-50">Provincia</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="provincia" th:value="${session.usuarioLogueado.provincia}" required>
                             </div>
                             <div class="col-md-4 mt-3 mt-md-0">
-                                <label class="form-label fw-bold text-white-50">Distrito</label>
-                                <input type="text" class="form-control bg-dark text-white border-secondary" name="distrito" th:value="${session.usuarioLogueado.distrito}" required>
+                                <label class="form-label fw-bold text-theme-50">Distrito</label>
+                                <input type="text" class="form-control bg-dark text-theme border-secondary" name="distrito" th:value="${session.usuarioLogueado.distrito}" required>
                             </div>
                         </div>
 
@@ -1160,10 +1221,10 @@
                         <div class="p-3 mb-4 rounded-3 border border-secondary" style="background: rgba(0,0,0,0.25);">
                             <label class="form-label fw-bold text-neon-green"><i class="bi bi-cash-coin"></i> Abonar Saldo Adicional (Opcional)</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-dark text-white border-secondary">S/</span>
-                                <input type="number" step="0.50" min="0" class="form-control bg-dark text-white border-secondary fw-bold" name="montoAdicional" placeholder="Ej. 20.00" value="0.0">
+                                <span class="input-group-text bg-dark text-theme border-secondary">S/</span>
+                                <input type="number" step="0.50" min="0" class="form-control bg-dark text-theme border-secondary fw-bold" name="montoAdicional" placeholder="Ej. 20.00" value="0.0">
                             </div>
-                            <div class="form-text text-white-50 mt-1">Ingresa el monto que deseas cargar a tu cuenta ahora mismo.</div>
+                            <div class="form-text text-theme-50 mt-1">Ingresa el monto que deseas cargar a tu cuenta ahora mismo.</div>
                         </div>
 
                         <div class="text-end">
@@ -1190,7 +1251,7 @@
     <!-- Modal para Dashboard de Usuario -->
     <div class="modal fade" id="userDashboardModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-scrollable">
-            <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-content bg-dark text-theme border-secondary">
                 <div class="modal-header border-secondary">
                     <h5 class="modal-title fw-bold m-0">Estadísticas de <span id="dashUserName" class="text-neon-cyan">Usuario</span></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1200,26 +1261,26 @@
                     <div class="row g-3 mb-4">
                         <div class="col-md-4">
                             <div class="p-3 bg-dark border border-secondary rounded shadow-sm">
-                                <div class="small text-white-50"><i class="bi bi-wallet2 text-neon-cyan"></i> Saldo Disponible</div>
+                                <div class="small text-theme-50"><i class="bi bi-wallet2 text-neon-cyan"></i> Saldo Disponible</div>
                                 <h3 class="fw-bold mb-0 text-neon-cyan" id="dashUserSaldo">S/ 0.00</h3>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-3 bg-dark border border-secondary rounded shadow-sm">
-                                <div class="small text-white-50"><i class="bi bi-check-circle text-neon-green"></i> Cuánto ya ganó</div>
+                                <div class="small text-theme-50"><i class="bi bi-check-circle text-neon-green"></i> Cuánto ya ganó</div>
                                 <h3 class="fw-bold mb-0 text-neon-green" id="dashUserTotalWon">S/ 0.00</h3>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-3 bg-dark border border-secondary rounded shadow-sm">
-                                <div class="small text-white-50"><i class="bi bi-hourglass-split text-warning"></i> Cuánto va a ganar</div>
+                                <div class="small text-theme-50"><i class="bi bi-hourglass-split text-warning"></i> Cuánto va a ganar</div>
                                 <h3 class="fw-bold mb-0 text-warning" id="dashUserTotalPending">S/ 0.00</h3>
                             </div>
                         </div>
                     </div>
 
                     <!-- Tabla de Historial (Ocultando/Mostrando filas según usuario) -->
-                    <h6 class="fw-bold text-white-50 mb-3">Historial de Tickets</h6>
+                    <h6 class="fw-bold text-theme-50 mb-3">Historial de Tickets</h6>
                     
                     <!-- Contenedor del Árbol de Estructuras (Árboles y Pilas) -->
                     <div id="userBetsTreeContainer" class="mb-4">
@@ -1233,7 +1294,7 @@
     <!-- Modal: Registrar / Editar Apostador -->
     <div class="modal fade" id="userModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-content bg-dark text-theme border-secondary">
                 <div class="modal-header border-secondary">
                     <h5 class="modal-title fw-bold text-neon-cyan" id="userModalTitle">Registrar Apostador</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1243,25 +1304,25 @@
                         <input type="hidden" name="id" id="userIdInput">
                         
                         <div class="mb-3">
-                            <label class="form-label text-white-50">Nombre</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" name="nombre" id="userNombre" required>
+                            <label class="form-label text-theme-50">Nombre</label>
+                            <input type="text" class="form-control bg-dark text-theme border-secondary" name="nombre" id="userNombre" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label text-white-50">Apellido</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" name="apellido" id="userApellido" required>
+                            <label class="form-label text-theme-50">Apellido</label>
+                            <input type="text" class="form-control bg-dark text-theme border-secondary" name="apellido" id="userApellido" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label text-white-50">DNI</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" name="dni" id="userDni" required>
+                            <label class="form-label text-theme-50">DNI</label>
+                            <input type="text" class="form-control bg-dark text-theme border-secondary" name="dni" id="userDni" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label text-white-50">Correo Electrónico</label>
-                            <input type="email" class="form-control bg-dark text-white border-secondary" name="email" id="userEmail" required>
+                            <label class="form-label text-theme-50">Correo Electrónico</label>
+                            <input type="email" class="form-control bg-dark text-theme border-secondary" name="email" id="userEmail" required>
                         </div>
                         <div class="mb-3" id="userSaldoGroup">
-                            <label class="form-label text-white-50">Saldo Ficticio ($)</label>
-                            <input type="number" step="0.01" class="form-control bg-dark text-white border-secondary" name="saldo" id="userSaldo">
-                            <div class="form-text text-white-50">Nota: Al crear, se asignarán $10.0 automáticamente si se deja vacío.</div>
+                            <label class="form-label text-theme-50">Saldo Ficticio ($)</label>
+                            <input type="number" step="0.01" class="form-control bg-dark text-theme border-secondary" name="saldo" id="userSaldo">
+                            <div class="form-text text-theme-50">Nota: Al crear, se asignarán $10.0 automáticamente si se deja vacío.</div>
                         </div>
                     </div>
                     <div class="modal-footer border-secondary">
@@ -1276,7 +1337,7 @@
     <!-- Modal para Crear Apuesta desde Fixture -->
     <div class="modal fade" id="placeBetModal" tabindex="-1" aria-labelledby="placeBetModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-content bg-dark text-theme border-secondary">
                 <div class="modal-header border-secondary">
                     <h5 class="modal-title text-neon-cyan" id="placeBetModalLabel"><i class="bi bi-ticket-perforated"></i> Realizar Apuesta</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1287,16 +1348,16 @@
                         <h6 class="fw-bold mb-3" id="pb_partidoNombre">Equipo 1 vs Equipo 2</h6>
                         
                         <div class="mb-3" th:if="${isAdmin}">
-                            <label class="form-label text-white-50 small">Apostador (Cliente)</label>
-                            <select class="form-select bg-dark text-white border-secondary" name="apostadorId" required>
+                            <label class="form-label text-theme-50 small">Apostador (Cliente)</label>
+                            <select class="form-select bg-dark text-theme border-secondary" name="apostadorId" required>
                                 <option value="">-- Seleccionar Apostador --</option>
                                 <option th:each="u : ${todosLosUsuarios}" th:value="${u.id}" th:text="${u.nombre + ' ' + u.apellido + ' (S/ ' + u.saldo + ')'}"></option>
                             </select>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label text-white-50 small">Pronóstico de Ganador</label>
-                            <select class="form-select bg-dark text-white border-secondary" name="resultadoApostado" required>
+                            <label class="form-label text-theme-50 small">Pronóstico de Ganador</label>
+                            <select class="form-select bg-dark text-theme border-secondary" name="resultadoApostado" required>
                                 <option value="">-- Seleccionar --</option>
                                 <option value="EQUIPO 1" id="pb_optEquipo1">Equipo 1</option>
                                 <option value="EQUIPO 2" id="pb_optEquipo2">Equipo 2</option>
@@ -1304,25 +1365,25 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label text-white-50 small">Monto a Apostar (S/)</label>
-                            <input type="number" step="0.50" min="1" class="form-control bg-dark text-white border-secondary" name="monto" required placeholder="Ej. 10.00">
+                            <label class="form-label text-theme-50 small">Monto a Apostar (S/)</label>
+                            <input type="number" step="0.50" min="1" class="form-control bg-dark text-theme border-secondary" name="monto" required placeholder="Ej. 10.00">
                         </div>
                         
                         <hr class="border-secondary">
-                        <h6 class="fw-bold mb-3 text-white-50" style="font-size: 0.85rem;"><i class="bi bi-ui-radios-grid"></i> Opciones Adicionales</h6>
+                        <h6 class="fw-bold mb-3 text-theme-50" style="font-size: 0.85rem;"><i class="bi bi-ui-radios-grid"></i> Opciones Adicionales</h6>
                         
                         <div class="row g-2">
                             <div class="col-6">
-                                <label class="small text-white-50 mb-1">Tarjetas Rojas</label>
-                                <input type="number" min="0" max="10" class="form-control bg-dark text-white border-secondary" name="propTarjetasRojas">
+                                <label class="small text-theme-50 mb-1">Tarjetas Rojas</label>
+                                <input type="number" min="0" max="10" class="form-control bg-dark text-theme border-secondary" name="propTarjetasRojas">
                             </div>
                             <div class="col-6">
-                                <label class="small text-white-50 mb-1">Tarjetas Amarillas</label>
-                                <input type="number" min="0" max="20" class="form-control bg-dark text-white border-secondary" name="propTarjetasAmarillas">
+                                <label class="small text-theme-50 mb-1">Tarjetas Amarillas</label>
+                                <input type="number" min="0" max="20" class="form-control bg-dark text-theme border-secondary" name="propTarjetasAmarillas">
                             </div>
                             <div class="col-12 mt-2">
-                                <label class="small text-white-50 mb-1">¿Habrá Expulsado?</label>
-                                <select class="form-select bg-dark text-white border-secondary" name="propExpulsado">
+                                <label class="small text-theme-50 mb-1">¿Habrá Expulsado?</label>
+                                <select class="form-select bg-dark text-theme border-secondary" name="propExpulsado">
                                     <option value="">-- Seleccionar --</option>
                                     <option value="NO">No</option>
                                     <option value="SI">Sí</option>
@@ -1353,23 +1414,23 @@
                         
                         <div class="mb-3">
                             <label class="form-label text-neon-cyan">N° de Ticket</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" id="editLiqTicket" readonly>
+                            <input type="text" class="form-control bg-dark text-theme border-secondary" id="editLiqTicket" readonly>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label text-neon-cyan">Monto Apostado (S/)</label>
-                                <input type="number" class="form-control bg-dark text-white border-secondary" id="editLiqMonto" readonly>
+                                <input type="number" class="form-control bg-dark text-theme border-secondary" id="editLiqMonto" readonly>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label text-neon-cyan">Cuota</label>
-                                <input type="number" step="0.01" class="form-control bg-dark text-white border-secondary" id="editLiqCuota" readonly>
+                                <input type="number" step="0.01" class="form-control bg-dark text-theme border-secondary" id="editLiqCuota" readonly>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="editLiqEstado" class="form-label text-neon-cyan">Estado de la Apuesta</label>
-                            <select class="form-select bg-dark text-white border-secondary" id="editLiqEstado" name="estado" required>
+                            <select class="form-select bg-dark text-theme border-secondary" id="editLiqEstado" name="estado" required>
                                 <option value="PENDIENTE">En Proceso</option>
                                 <option value="GANADA">GANADA (Por Pagar)</option>
                                 <option value="PERDIDA">PERDIDA</option>
@@ -1380,16 +1441,16 @@
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-neon-cyan">Ganancia Bruta (S/)</label>
-                                <input type="number" step="0.01" class="form-control bg-dark text-white border-secondary" id="editLiqGananciaBruta" readonly>
+                                <input type="number" step="0.01" class="form-control bg-dark text-theme border-secondary" id="editLiqGananciaBruta" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label text-danger">IGV 18% (S/)</label>
-                                <input type="number" step="0.01" class="form-control bg-dark text-white border-danger" id="editLiqIgv" readonly>
+                                <input type="number" step="0.01" class="form-control bg-dark text-theme border-danger" id="editLiqIgv" readonly>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="editLiqGanancia" class="form-label text-success fw-bold">Total a Pagar (S/)</label>
                                 <input type="number" step="0.01" class="form-control bg-dark text-success border-success fw-bold" id="editLiqGanancia" name="ganancia" required>
-                                <small class="text-white-50">Neto tras descontar IGV</small>
+                                <small class="text-theme-50">Neto tras descontar IGV</small>
                             </div>
                         </div>
                     </div>
@@ -1405,7 +1466,7 @@
     <!-- Modal para Editar Apuesta -->
     <div class="modal fade" id="editBetModal" tabindex="-1" aria-labelledby="editBetModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-content bg-dark text-theme border-secondary">
                 <div class="modal-header border-secondary">
                     <h5 class="modal-title text-neon-cyan" id="editBetModalLabel"><i class="bi bi-pencil-square"></i> Editar Apuesta</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1419,36 +1480,36 @@
                             <h6 class="fw-bold mb-2 text-neon-cyan" style="font-size: 0.85rem;"><i class="bi bi-person-badge"></i> Datos del Apostador</h6>
                             <div class="row g-2">
                                 <div class="col-md-6">
-                                    <label class="small text-white-50 mb-1">Tipo Doc.</label>
-                                    <select class="form-select form-select-sm bg-dark text-white border-secondary" name="userTipoDocumento" id="eb_udocumento">
+                                    <label class="small text-theme-50 mb-1">Tipo Doc.</label>
+                                    <select class="form-select form-select-sm bg-dark text-theme border-secondary" name="userTipoDocumento" id="eb_udocumento">
                                         <option value="DNI">DNI</option>
                                         <option value="CE">CE</option>
                                         <option value="PASAPORTE">Pasaporte</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="small text-white-50 mb-1">N° Documento</label>
-                                    <input type="text" class="form-control form-control-sm bg-dark text-white border-secondary" name="userDni" id="eb_udni" required>
+                                    <label class="small text-theme-50 mb-1">N° Documento</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-theme border-secondary" name="userDni" id="eb_udni" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="small text-white-50 mb-1">Nombres</label>
-                                    <input type="text" class="form-control form-control-sm bg-dark text-white border-secondary" name="userNombre" id="eb_unombre" required>
+                                    <label class="small text-theme-50 mb-1">Nombres</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-theme border-secondary" name="userNombre" id="eb_unombre" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="small text-white-50 mb-1">Apellidos</label>
-                                    <input type="text" class="form-control form-control-sm bg-dark text-white border-secondary" name="userApellido" id="eb_uapellido" required>
+                                    <label class="small text-theme-50 mb-1">Apellidos</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-theme border-secondary" name="userApellido" id="eb_uapellido" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="small text-white-50 mb-1">Contraseña</label>
-                                    <input type="text" class="form-control form-control-sm bg-dark text-white border-secondary" name="userContrasena" id="eb_upass" required>
+                                    <label class="small text-theme-50 mb-1">Contraseña</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-theme border-secondary" name="userContrasena" id="eb_upass" required>
                                 </div>
                             </div>
                         </div>
                         
                         <h6 class="fw-bold mb-2 text-neon-cyan" style="font-size: 0.85rem;"><i class="bi bi-ticket-detailed"></i> Datos de la Apuesta</h6>
                         <div class="mb-3">
-                            <label class="form-label text-white-50 small">Pronóstico de Ganador</label>
-                            <select class="form-select bg-dark text-white border-secondary" name="resultadoApostado" id="eb_resultadoApostado" required>
+                            <label class="form-label text-theme-50 small">Pronóstico de Ganador</label>
+                            <select class="form-select bg-dark text-theme border-secondary" name="resultadoApostado" id="eb_resultadoApostado" required>
                                 <option value="">-- Seleccionar --</option>
                                 <option value="EQUIPO 1">Equipo 1</option>
                                 <option value="EQUIPO 2">Equipo 2</option>
@@ -1456,25 +1517,25 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label text-white-50 small">Monto a Apostar (S/)</label>
-                            <input type="number" step="0.50" min="1" class="form-control bg-dark text-white border-secondary" name="monto" id="eb_monto" required>
+                            <label class="form-label text-theme-50 small">Monto a Apostar (S/)</label>
+                            <input type="number" step="0.50" min="1" class="form-control bg-dark text-theme border-secondary" name="monto" id="eb_monto" required>
                         </div>
                         
                         <hr class="border-secondary">
-                        <h6 class="fw-bold mb-3 text-white-50" style="font-size: 0.85rem;"><i class="bi bi-ui-radios-grid"></i> Opciones Adicionales</h6>
+                        <h6 class="fw-bold mb-3 text-theme-50" style="font-size: 0.85rem;"><i class="bi bi-ui-radios-grid"></i> Opciones Adicionales</h6>
                         
                         <div class="row g-2">
                             <div class="col-6">
-                                <label class="small text-white-50 mb-1">Tarjetas Rojas</label>
-                                <input type="number" min="0" max="10" class="form-control bg-dark text-white border-secondary" name="propTarjetasRojas" id="eb_rojas">
+                                <label class="small text-theme-50 mb-1">Tarjetas Rojas</label>
+                                <input type="number" min="0" max="10" class="form-control bg-dark text-theme border-secondary" name="propTarjetasRojas" id="eb_rojas">
                             </div>
                             <div class="col-6">
-                                <label class="small text-white-50 mb-1">Tarjetas Amarillas</label>
-                                <input type="number" min="0" max="20" class="form-control bg-dark text-white border-secondary" name="propTarjetasAmarillas" id="eb_amarillas">
+                                <label class="small text-theme-50 mb-1">Tarjetas Amarillas</label>
+                                <input type="number" min="0" max="20" class="form-control bg-dark text-theme border-secondary" name="propTarjetasAmarillas" id="eb_amarillas">
                             </div>
                             <div class="col-12 mt-2">
-                                <label class="small text-white-50 mb-1">¿Habrá Expulsado?</label>
-                                <select class="form-select bg-dark text-white border-secondary" name="propExpulsado" id="eb_expulsado">
+                                <label class="small text-theme-50 mb-1">¿Habrá Expulsado?</label>
+                                <select class="form-select bg-dark text-theme border-secondary" name="propExpulsado" id="eb_expulsado">
                                     <option value="">-- Seleccionar --</option>
                                     <option value="NO">No</option>
                                     <option value="SI">Sí</option>
@@ -1851,11 +1912,19 @@
         // Function to open administrative edit modal for a specific match
         function openEditMatchModal(btn) {
             const id = btn.getAttribute('data-id');
+            if (!id || id === 'null' || id === '') {
+                alert("Error: Este partido no tiene un ID asignado. Comunícate con el administrador.");
+                return;
+            }
             
             // Fetch exact data from API
             fetch('/partidos/api/' + id)
                 .then(res => res.json())
                 .then(partido => {
+                    if (partido.error) {
+                        alert("Error: " + partido.error);
+                        return;
+                    }
                     document.getElementById('modalPartidoId').value = partido?.id;
                     document.getElementById('modalMatchTitle').innerText = partido?.equipo1 + ' vs ' + partido?.equipo2;
                     document.getElementById('modalMatchEstadio').innerText = partido?.estadio || 'Estadio por definir';
@@ -1864,7 +1933,6 @@
                     document.getElementById('modalEquipo1Input').value = partido?.equipo1;
                     document.getElementById('modalEquipo2Input').value = partido?.equipo2;
                     document.getElementById('modalCuotaEquipo1Input').value = partido.cuotaEquipo1.toFixed(2);
-                    document.getElementById('modalCuotaEmpateInput').value = partido.cuotaEmpate.toFixed(2);
                     document.getElementById('modalCuotaEquipo2Input').value = partido.cuotaEquipo2.toFixed(2);
                     
                     // Setup Equipo 1 (Equipo 1) input vs select
@@ -1993,10 +2061,10 @@
             if (estado === 'PENDIENTE') {
                 badge.className = 'badge bg-warning text-dark';
             } else if (estado === 'GANADA') {
-                badge.className = 'badge bg-success text-white';
+                badge.className = 'badge bg-success text-theme';
                 badge.innerText = '¡APUESTA GANADA!';
             } else {
-                badge.className = 'badge bg-danger text-white';
+                badge.className = 'badge bg-danger text-theme';
                 badge.innerText = 'APUESTA PERDIDA';
             }
 
@@ -2098,7 +2166,7 @@
             const partidos = Object.keys(groupedBets);
             if (partidos.length === 0) {
                 treeContainer.innerHTML = `
-                    <div class="text-center py-4 text-white-50 border border-secondary rounded" style="background: rgba(255,255,255,0.02)">
+                    <div class="text-center py-4 text-theme-50 border border-secondary rounded" style="background: rgba(255,255,255,0.02)">
                         <i class="bi bi-receipt fs-3 d-block mb-2 text-muted"></i>
                         Este apostador aún no tiene tickets de apuestas.
                     </div>`;
@@ -2132,11 +2200,11 @@
                     <div class="tree-header p-3 bg-dark d-flex justify-content-between align-items-center cursor-pointer" 
                          style="border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 0.2s;"
                          onclick="toggleTreeNode('${nodeId}')">
-                        <span class="fw-bold text-white">
+                        <span class="fw-bold text-theme">
                             <i class="bi bi-caret-right-fill text-neon-cyan me-2" id="caret-${nodeId}"></i>
                             ⚽ ${partidoName}
                         </span>
-                        <span class="badge bg-secondary text-white">${matchBets.length} apuesta(s)</span>
+                        <span class="badge bg-secondary text-theme">${matchBets.length} apuesta(s)</span>
                     </div>
                     <div class="tree-body d-none p-3" id="body-${nodeId}" style="background: rgba(0,0,0,0.2);">
                     </div>
@@ -2153,9 +2221,9 @@
                     if (bet.estado === 'PENDIENTE') {
                         statusBadge = '<span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i> PENDIENTE</span>';
                     } else if (bet.estado === 'GANADA') {
-                        statusBadge = '<span class="badge bg-success text-white"><i class="bi bi-check-circle"></i> GANADA</span>';
+                        statusBadge = '<span class="badge bg-success text-theme"><i class="bi bi-check-circle"></i> GANADA</span>';
                     } else if (bet.estado === 'PERDIDA') {
-                        statusBadge = '<span class="badge bg-danger text-white"><i class="bi bi-x-circle"></i> PERDIDA</span>';
+                        statusBadge = '<span class="badge bg-danger text-theme"><i class="bi bi-x-circle"></i> PERDIDA</span>';
                     }
                     
                     let actionHtml = '';
@@ -2163,8 +2231,8 @@
                         actionHtml = `
                             <form action="/apuestas/resolver" method="post" class="d-flex align-items-center mt-2 pt-2 border-top border-secondary">
                                 <input type="hidden" name="apuestaId" value="${bet.id}" />
-                                <span class="small text-white-50 me-2" style="font-size:0.75rem;">Simular:</span>
-                                <select name="resultadoReal" class="form-select form-select-sm bg-dark text-white border-secondary me-2" style="width: auto;" required>
+                                <span class="small text-theme-50 me-2" style="font-size:0.75rem;">Simular:</span>
+                                <select name="resultadoReal" class="form-select form-select-sm bg-dark text-theme border-secondary me-2" style="width: auto;" required>
                                     <option value="">Ganador...</option>
                                     <option value="EQUIPO 1">Gana Equipo 1</option>
                                     <option value="EQUIPO 2">Gana Equipo 2</option>
@@ -2202,17 +2270,17 @@
                         <div class="d-flex justify-content-between align-items-start mb-2">
                             <div>
                                 <strong class="text-neon-cyan" style="font-size:0.95rem;">Ticket: ${bet.ticketId}</strong>
-                                <div class="text-white-50" style="font-size:0.75rem;"><i class="bi bi-clock"></i> Apostado el ${bet.fecha}</div>
+                                <div class="text-theme-50" style="font-size:0.75rem;"><i class="bi bi-clock"></i> Apostado el ${bet.fecha}</div>
                             </div>
                             ${statusBadge}
                         </div>
                         <div class="row g-2 mb-2" style="font-size:0.85rem;">
                             <div class="col-6">
-                                <div class="text-white-50">Monto Apostado:</div>
-                                <strong class="text-white">S/ ${bet.monto}</strong>
+                                <div class="text-theme-50">Monto Apostado:</div>
+                                <strong class="text-theme">S/ ${bet.monto}</strong>
                             </div>
                             <div class="col-6">
-                                <div class="text-white-50">Pago Estimado:</div>
+                                <div class="text-theme-50">Pago Estimado:</div>
                                 <strong class="text-neon-green">S/ ${bet.ganancia} <span class="text-muted" style="font-size:0.7rem;">(${bet.cuota}x)</span></strong>
                             </div>
                         </div>
@@ -2290,7 +2358,7 @@
                     <!-- Match details -->
                     <div class="mb-3" style="font-size: 0.9rem;">
                         <div class="text-center mb-2">
-                            <span class="badge bg-dark text-white text-uppercase py-1 px-3" style="letter-spacing: 1px;">DETALLE DE APUESTA</span>
+                            <span class="badge bg-dark text-theme text-uppercase py-1 px-3" style="letter-spacing: 1px;">DETALLE DE APUESTA</span>
                         </div>
                         <div class="d-flex justify-content-between">
                             <span>PARTIDO:</span>
@@ -2346,7 +2414,7 @@
                     
                     <!-- Barcode and Verification signature -->
                     <div class="text-center pt-2">
-                        <div class="d-inline-block bg-dark text-white p-2 mb-2 fw-black" style="font-size: 2.2rem; letter-spacing: 4px; height: 50px; overflow: hidden; background: #000 !important; color: #fff !important; width: 85%;">
+                        <div class="d-inline-block bg-dark text-theme p-2 mb-2 fw-black" style="font-size: 2.2rem; letter-spacing: 4px; height: 50px; overflow: hidden; background: #000 !important; color: #fff !important; width: 85%;">
                             ||||| | || ||| || ||| | ||| ||
                         </div>
                         <div class="small text-muted" style="font-size: 0.75rem;">Firma Digital: 5c9e26ff2c0a8764121bf26e2a</div>
@@ -2365,7 +2433,7 @@
     <!-- Modal para Editar / Resolver Partido (Administración Directa desde el Bracket) -->
     <div class="modal fade" id="editMatchModal" tabindex="-1" aria-labelledby="editMatchModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark border-secondary text-white" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div class="modal-content bg-dark border-secondary text-theme" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);">
                 <div class="modal-header border-secondary">
                     <h5 class="modal-title fw-bold text-neon-cyan" id="editMatchModalLabel">
                         <i class="bi bi-shield-lock-fill text-neon-green"></i> Panel Admin: Editar Partido
@@ -2377,8 +2445,8 @@
                         <input type="hidden" name="partidoId" id="modalPartidoId" />
                         
                         <div class="text-center mb-4 py-3 rounded" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
-                            <h4 class="fw-bold mb-2 text-white" id="modalMatchTitle">Equipo 1 vs Equipo 2</h4>
-                            <div class="d-flex justify-content-center gap-3 text-white-50 small mb-0">
+                            <h4 class="fw-bold mb-2 text-theme" id="modalMatchTitle">Equipo 1 vs Equipo 2</h4>
+                            <div class="d-flex justify-content-center gap-3 text-theme-50 small mb-0">
                                 <span><i class="bi bi-geo-alt-fill text-neon-cyan"></i> <strong id="modalMatchEstadio">Estadio</strong></span>
                                 <span><i class="bi bi-clock-fill text-neon-green"></i> <strong id="modalMatchFecha">Hora</strong></span>
                             </div>
@@ -2387,41 +2455,41 @@
                         <!-- Inputs para Editar Equipos -->
                         <div class="row mb-3">
                             <div class="col-6">
-                                <label class="form-label fw-bold text-white-50 small">Equipo 1</label>
-                                <input type="text" name="equipo1" id="modalEquipo1Input" class="form-control bg-dark text-white border-secondary fw-bold" style="border-radius: 8px;" oninput="updateModalWinnerSelect()" required />
-                                <select id="modalEquipo1Select" class="form-select bg-dark text-white border-secondary fw-bold d-none" style="border-radius: 8px;" onchange="onEquipo1SelectChange()"></select>
+                                <label class="form-label fw-bold text-theme-50 small">Equipo 1</label>
+                                <input type="text" name="equipo1" id="modalEquipo1Input" class="form-control bg-dark text-theme border-secondary fw-bold" style="border-radius: 8px;" oninput="updateModalWinnerSelect()" required />
+                                <select id="modalEquipo1Select" class="form-select bg-dark text-theme border-secondary fw-bold d-none" style="border-radius: 8px;" onchange="onEquipo1SelectChange()"></select>
                             </div>
                             <div class="col-6">
-                                <label class="form-label fw-bold text-white-50 small">Equipo 2</label>
-                                <input type="text" name="equipo2" id="modalEquipo2Input" class="form-control bg-dark text-white border-secondary fw-bold" style="border-radius: 8px;" oninput="updateModalWinnerSelect()" required />
-                                <select id="modalEquipo2Select" class="form-select bg-dark text-white border-secondary fw-bold d-none" style="border-radius: 8px;" onchange="onEquipo2SelectChange()"></select>
+                                <label class="form-label fw-bold text-theme-50 small">Equipo 2</label>
+                                <input type="text" name="equipo2" id="modalEquipo2Input" class="form-control bg-dark text-theme border-secondary fw-bold" style="border-radius: 8px;" oninput="updateModalWinnerSelect()" required />
+                                <select id="modalEquipo2Select" class="form-select bg-dark text-theme border-secondary fw-bold d-none" style="border-radius: 8px;" onchange="onEquipo2SelectChange()"></select>
                             </div>
                         </div>
 
                         <!-- Inputs para Editar Cuotas -->
                         <div class="row mb-3">
                             <div class="col-4">
-                                <label class="form-label fw-bold text-white-50 small">Cuota Equipo 1</label>
-                                <input type="number" step="0.01" min="0.01" name="cuotaEquipo1" id="modalCuotaEquipo1Input" class="form-control bg-dark text-white border-secondary fw-bold" style="border-radius: 8px;" required />
+                                <label class="form-label fw-bold text-theme-50 small">Cuota Equipo 1</label>
+                                <input type="number" step="0.01" min="0.01" name="cuotaEquipo1" id="modalCuotaEquipo1Input" class="form-control bg-dark text-theme border-secondary fw-bold" style="border-radius: 8px;" required />
                             </div>
                             <div class="col-4">
-                                <label class="form-label fw-bold text-white-50 small">Cuota Equipo 2</label>
-                                <input type="number" step="0.01" min="0.01" name="cuotaEquipo2" id="modalCuotaEquipo2Input" class="form-control bg-dark text-white border-secondary fw-bold" style="border-radius: 8px;" required />
+                                <label class="form-label fw-bold text-theme-50 small">Cuota Equipo 2</label>
+                                <input type="number" step="0.01" min="0.01" name="cuotaEquipo2" id="modalCuotaEquipo2Input" class="form-control bg-dark text-theme border-secondary fw-bold" style="border-radius: 8px;" required />
                             </div>
                         </div>
                         
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-white-50">Seleccionar Ganador Oficial</label>
-                            <select name="ganador" id="modalWinnerSelect" class="form-select bg-dark text-white border-secondary fw-bold" style="border-radius: 8px;">
+                            <label class="form-label fw-bold text-theme-50">Seleccionar Ganador Oficial</label>
+                            <select name="ganador" id="modalWinnerSelect" class="form-select bg-dark text-theme border-secondary fw-bold" style="border-radius: 8px;">
                                 <option value="">-- Escoger Ganador --</option>
                             </select>
-                            <div class="form-text text-white-50 mt-3" style="font-size: 0.8rem;">
+                            <div class="form-text text-theme-50 mt-3" style="font-size: 0.8rem;">
                                 <i class="bi bi-exclamation-triangle-fill text-warning"></i> Al guardar, se actualizarán los datos del encuentro en la base de datos, se recalculará la tabla, avanzará el ganador en el bracket y se procesarán las apuestas.
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer border-secondary">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 text-white" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 text-theme" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success text-black fw-bold rounded-pill px-4" style="background: linear-gradient(135deg, var(--wc-cyan) 0%, var(--wc-green) 100%); border: none;">
                             <i class="bi bi-save2-fill"></i> Guardar Cambios
                         </button>
@@ -2469,7 +2537,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             betsByMatch[partidoStr].forEach(bet => {
                 const betInfo = document.createElement('div');
-                betInfo.className = 'text-white-50 text-truncate';
+                betInfo.className = 'text-theme-50 text-truncate';
                 betInfo.title = `${bet.cliente}: $${bet.monto} (${bet.pronostico})`;
                 betInfo.innerHTML = `<strong>${bet.cliente}</strong> ($${bet.monto}) - ${bet.pronostico}`;
                 betsContainer.appendChild(betInfo);

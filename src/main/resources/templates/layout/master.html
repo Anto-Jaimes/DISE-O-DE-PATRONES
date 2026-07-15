@@ -185,7 +185,6 @@
                         <span class="me-3 fw-bold">
                             <i class="bi bi-person-circle text-info"></i> 
                             <span th:text="${session.usuarioLogueado.nombre + ' ' + session.usuarioLogueado.apellido}">Usuario</span>
-                            <button th:if="${session.usuarioLogueado.rol == 'ADMIN'}" class="btn btn-sm btn-outline-info ms-2" style="border-radius: 20px; font-size: 0.75rem;" data-bs-toggle="modal" data-bs-target="#editProfileModal"><i class="bi bi-pencil-fill"></i> Editar tu perfil</button>
                         </span>
 
                         <a href="/logout" class="btn btn-logout btn-sm text-white fw-bold" style="background: var(--wc-red);">

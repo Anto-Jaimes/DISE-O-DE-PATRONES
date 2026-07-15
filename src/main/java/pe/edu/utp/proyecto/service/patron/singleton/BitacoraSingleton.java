@@ -9,16 +9,20 @@ public class BitacoraSingleton {
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BitacoraSingleton.class);
 
 
-    private static BitacoraSingleton instancia;
+    private static volatile BitacoraSingleton instancia;
     private List<String> historial;
 
     private BitacoraSingleton() {
-        historial = new ArrayList<>();
+        historial = new java.util.concurrent.CopyOnWriteArrayList<>();
     }
 
     public static BitacoraSingleton getInstancia() {
         if (instancia == null) {
-            instancia = new BitacoraSingleton();
+            synchronized (BitacoraSingleton.class) {
+                if (instancia == null) {
+                    instancia = new BitacoraSingleton();
+                }
+            }
         }
         return instancia;
     }
