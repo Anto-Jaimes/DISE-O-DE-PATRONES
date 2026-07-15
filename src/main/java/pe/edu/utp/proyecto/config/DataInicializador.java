@@ -12,20 +12,24 @@ import pe.edu.utp.proyecto.repository.PartidoR;
 
 @Component
 public class DataInicializador implements CommandLineRunner {
+
+    public DataInicializador(UsuarioR usuarioRepo, Plataformarepositorio plataformaRepo, PartidoR partidoRepo) {
+        this.usuarioRepo = usuarioRepo;
+        this.plataformaRepo = plataformaRepo;
+        this.partidoRepo = partidoRepo;
+    }
+
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DataInicializador.class);
 
 
-    @Autowired
-    private UsuarioR usuarioRepo;
+    private final UsuarioR usuarioRepo;
 
-    @Autowired
-    private Plataformarepositorio plataformaRepo;
+    private final Plataformarepositorio plataformaRepo;
 
-    @Autowired
-    private PartidoR partidoRepo;
+    private final PartidoR partidoRepo;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(@org.springframework.lang.NonNull String... args) throws Exception {
         if (usuarioRepo.count() == 0) {
             log.info(">>> CREANDO JUGADORES DE PRUEBA...");
 

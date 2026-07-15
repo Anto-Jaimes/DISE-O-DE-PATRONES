@@ -19,14 +19,10 @@ import java.util.List;
 public class PartidoController {
 
     private final PartidoServicio servicio;
-    private final ApuestaR apuestaRepo;
-    private final UsuarioR usuarioRepo;
-
-    public PartidoController(PartidoServicio servicio, ApuestaR apuestaRepo, UsuarioR usuarioRepo) {
+        
+    public PartidoController(PartidoServicio servicio) {
         this.servicio = servicio;
-        this.apuestaRepo = apuestaRepo;
-        this.usuarioRepo = usuarioRepo;
-    }
+                    }
 
 
 

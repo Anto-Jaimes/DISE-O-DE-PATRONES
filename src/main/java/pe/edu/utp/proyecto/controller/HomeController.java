@@ -12,7 +12,6 @@ import pe.edu.utp.proyecto.service.interfaces.PartidoServicio;
 import pe.edu.utp.proyecto.service.interfaces.UsuarioServicio;
 import pe.edu.utp.proyecto.service.patron.singleton.BitacoraSingleton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -72,9 +71,9 @@ public class HomeController {
 
     private String getMatchKey(String local, String visitante) {
         return (local + "_" + visitante)
-                .replaceAll(" ", "")
-                .replaceAll("\\.", "")
-                .replaceAll("/", "_");
+                .replace(" ", "")
+                .replace("\\.", "")
+                .replace("/", "_");
     }
 
 }

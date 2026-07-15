@@ -32,25 +32,12 @@ public class ApuestaController {
 
     @GetMapping
     public String listar(Model model) {
-        model.addAttribute("apuestas", apuestaServicio.listar());
-        return "apuestas/lista";
+        return "redirect:/?tab=2";
     }
 
     @GetMapping("/nueva")
     public String nuevaApuesta(Model model, HttpSession session) {
-        Apuesta apuesta = new Apuesta();
-        apuesta.setFecha(LocalDateTime.now());
-
-        Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
-        if (usuarioLogueado != null) {
-            apuesta.setUsuario(usuarioLogueado);
-        }
-
-        model.addAttribute("apuesta", apuesta);
-        model.addAttribute("listaUsuarios", usuarioServicio.listar());
-        model.addAttribute("listaPartidos", partidoServicio.listar());
-
-        return "apuestas/form";
+        return "redirect:/?tab=2";
     }
 
     @PostMapping("/guardar")
@@ -195,7 +182,7 @@ public class ApuestaController {
                     apuesta.setCodigoTicket(dayBet + "-" + String.format("%03d", sequenceBet));
                     apuestaServicio.iniciarApuesta(apuesta);
                     
-                    // userForBet.setSaldo(userForBet.getSaldo() - montoApuesta); // No se descuenta por adelantado
+                    // No se descuenta por adelantado
                     usuarioServicio.actualizar(userForBet.getId(), userForBet);
                     session.setAttribute("usuarioLogueado", userForBet);
                     
@@ -276,8 +263,7 @@ public class ApuestaController {
         apuesta.setCodigoTicket(day + "-" + String.format("%03d", sequence));
 
         apuestaServicio.iniciarApuesta(apuesta);
-        // double nuevoSaldo = user.getSaldo() - monto;
-        // user.setSaldo(nuevoSaldo); // No se descuenta por adelantado
+        // No se descuenta por adelantado
         usuarioServicio.actualizar(user.getId(), user);
         
         if (!"ADMIN".equals(loggedIn.getRol())) {
@@ -363,7 +349,7 @@ public class ApuestaController {
             apuesta.setGanancia(montoGanado);
             Usuario user = usuarioServicio.buscarPorId(apuesta.getUsuario().getId());
             double nuevoSaldo = user.getSaldo() + montoGanado;
-            // user.setSaldo(nuevoSaldo); // No se descuenta por adelantado
+            // No se descuenta por adelantado
             usuarioServicio.actualizar(user.getId(), user);
             if (user.getId().equals(usuarioLogueado.getId())) {
                 session.setAttribute("usuarioLogueado", user);

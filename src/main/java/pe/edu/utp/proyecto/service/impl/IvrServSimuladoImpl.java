@@ -9,12 +9,11 @@ public class IvrServSimuladoImpl implements IvrServicioSimulado {
 
     private final Map<String, RespuestaStrategy> estrategiaMap;
     private final RespuestaStrategy defaultStrategy;
-    private final RespuestaStrategy usuarioStrategy;
-    public IvrServSimuladoImpl() {
+        public IvrServSimuladoImpl() {
         estrategiaMap = new HashMap<>();
         estrategiaMap.put("1",new TicketApuestasStrategy());
         estrategiaMap.put("2", new SoporteStrategy());
-        this.usuarioStrategy = new RespuestaStrategy() {
+        RespuestaStrategy usuarioStrategy = new RespuestaStrategy() {
             @Override
             public String responder(String opcion) {
                 return "Transfiriendo a una usuario. Por favor, espere.";

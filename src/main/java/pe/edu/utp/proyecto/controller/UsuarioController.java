@@ -1,9 +1,7 @@
 package pe.edu.utp.proyecto.controller;
 
-import pe.edu.utp.proyecto.modelo.Usuario;
 import pe.edu.utp.proyecto.service.interfaces.UsuarioServicio;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
