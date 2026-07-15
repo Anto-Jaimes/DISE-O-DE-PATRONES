@@ -1,6 +1,6 @@
 package pe.edu.utp.proyecto.service.impl;
 import pe.edu.utp.proyecto.modelo.ReglaBono;
-import pe.edu.utp.proyecto.service.patron.repository.ReglaBonoR;
+import pe.edu.utp.proyecto.repository.ReglaBonoR;
 import pe.edu.utp.proyecto.service.interfaces.ReglaBonoServicio;
 import org.springframework.stereotype.Service;
 import java.util.List;

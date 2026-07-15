@@ -1,12 +1,12 @@
 package pe.edu.utp.proyecto.service.impl;
 import pe.edu.utp.proyecto.modelo.Partido;
-import pe.edu.utp.proyecto.service.patron.repository.PartidoR;
+import pe.edu.utp.proyecto.repository.PartidoR;
 import pe.edu.utp.proyecto.service.interfaces.PartidoServicio;
 import org.springframework.stereotype.Service;
 import pe.edu.utp.proyecto.modelo.Apuesta;
 import pe.edu.utp.proyecto.modelo.Usuario;
-import pe.edu.utp.proyecto.service.patron.repository.ApuestaR;
-import pe.edu.utp.proyecto.service.patron.repository.UsuarioR;
+import pe.edu.utp.proyecto.repository.ApuestaR;
+import pe.edu.utp.proyecto.repository.UsuarioR;
 import pe.edu.utp.proyecto.service.patron.singleton.BitacoraSingleton;
 import java.util.List;
 @Service

@@ -1,4 +1,4 @@
-package pe.edu.utp.proyecto.service.patron.repository;
+package pe.edu.utp.proyecto.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import pe.edu.utp.proyecto.modelo.TicketApuesta;
 
